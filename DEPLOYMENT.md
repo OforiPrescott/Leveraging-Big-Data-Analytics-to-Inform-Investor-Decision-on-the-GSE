@@ -181,4 +181,18 @@ After successful deployment, your app will provide:
 - **Academic-grade data export**
 - **Multi-source data integration**
 
+## 🌐 Live Deployment
+
+**Your GSE Sentiment Analysis System is now live at:**
+**https://8gbpy8kder7stfdyuj72t7.streamlit.app/**
+
+### Features Available:
+- ✅ **Interactive Dashboard** - Real-time GSE analysis
+- ✅ **Sentiment Analysis** - Multi-method analysis for 10 companies
+- ✅ **ML Predictions** - 12 algorithms for stock forecasting
+- ✅ **Correlation Studies** - Granger causality testing
+- ✅ **Manual Input System** - Expert sentiment contributions
+- ✅ **Data Export** - Research-grade datasets in CSV/JSON
+- ✅ **Real-time Updates** - Continuous data collection
+
 Your GSE Sentiment Analysis System is now ready for cloud deployment! 🚀
