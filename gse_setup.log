@@ -1,0 +1,444 @@
+2025-09-30 10:33:43,214 - INFO - ==================================================
+2025-09-30 10:33:43,214 - INFO - GSE SENTIMENT ANALYSIS SYSTEM SETUP
+2025-09-30 10:33:43,214 - INFO - ==================================================
+2025-09-30 10:33:43,250 - INFO - Installing required packages...
+2025-09-30 10:33:45,803 - INFO - Setting up databases...
+2025-09-30 10:33:46,036 - INFO - Loading GSE CSV data...
+2025-09-30 10:33:46,038 - INFO - Loading GSE COMPOSITE INDEX.csv...
+2025-09-30 10:33:46,047 - INFO - Loading GSE FINANCIAL INDEX.csv...
+2025-09-30 10:33:46,057 - INFO - Creating sample sentiment data...
+2025-09-30 10:33:51,834 - INFO - Creating configuration file...
+2025-09-30 10:33:51,849 - INFO - Creating startup scripts...
+2025-09-30 10:33:51,878 - INFO - Running initial data collection...
+2025-09-30 10:33:51,886 - INFO - Collecting news for: Ghana Stock Exchange
+2025-09-30 10:33:57,540 - INFO - Found 0 article URLs from ghanaweb
+2025-09-30 10:34:14,434 - WARNING - Request failed for https://www.myjoyonline.com/search/Ghana+Stock+Exchange: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 10:34:17,309 - INFO - Found 1 article URLs from myjoyonline
+2025-09-30 10:34:19,716 - WARNING - Request failed for https://www.graphic.com.gh/search?q=Ghana+Stock+Exchange: 404 Client Error: Not Found for url: https://www.graphic.com.gh/search?q=Ghana+Stock+Exchange
+2025-09-30 10:34:22,989 - INFO - Found 5 article URLs from graphic_online
+2025-09-30 10:34:26,440 - WARNING - Request failed for https://businessghana.com/search/Ghana+Stock+Exchange: 404 Client Error: Not Found for url: https://businessghana.com/search/Ghana+Stock+Exchange
+2025-09-30 10:34:27,872 - INFO - Found 0 article URLs from business_ghana
+2025-09-30 10:34:36,385 - INFO - Found 5 article URLs from citi_newsroom
+2025-09-30 10:34:36,385 - INFO - Scraping 11 articles...
+2025-09-30 10:34:46,214 - INFO - Successfully scraped 5 relevant articles
+2025-09-30 10:34:46,288 - INFO - Saved 5 articles to database
+2025-09-30 10:34:46,294 - INFO - Collecting news for: GSE trading
+2025-09-30 10:34:49,927 - INFO - Found 0 article URLs from ghanaweb
+2025-09-30 10:35:06,828 - WARNING - Request failed for https://www.myjoyonline.com/search/GSE+trading: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 10:35:11,242 - INFO - Found 1 article URLs from myjoyonline
+2025-09-30 10:35:14,097 - WARNING - Request failed for https://www.graphic.com.gh/search?q=GSE+trading: 404 Client Error: Not Found for url: https://www.graphic.com.gh/search?q=GSE+trading
+2025-09-30 10:35:16,020 - INFO - Found 5 article URLs from graphic_online
+2025-09-30 10:35:18,391 - WARNING - Request failed for https://businessghana.com/search/GSE+trading: 404 Client Error: Not Found for url: https://businessghana.com/search/GSE+trading
+2025-09-30 10:35:20,798 - INFO - Found 0 article URLs from business_ghana
+2025-09-30 10:35:28,445 - INFO - Found 5 article URLs from citi_newsroom
+2025-09-30 10:35:28,445 - INFO - Scraping 11 articles...
+2025-09-30 10:35:36,772 - INFO - Successfully scraped 5 relevant articles
+2025-09-30 10:35:36,793 - INFO - Saved 5 articles to database
+2025-09-30 10:35:36,797 - INFO - Collecting news for: Ghana financial news
+2025-09-30 10:35:41,375 - INFO - Found 0 article URLs from ghanaweb
+2025-09-30 10:35:58,893 - WARNING - Request failed for https://www.myjoyonline.com/search/Ghana+financial+news: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 10:36:02,183 - INFO - Found 1 article URLs from myjoyonline
+2025-09-30 10:36:05,266 - WARNING - Request failed for https://www.graphic.com.gh/search?q=Ghana+financial+news: 404 Client Error: Not Found for url: https://www.graphic.com.gh/search?q=Ghana+financial+news
+2025-09-30 10:36:08,688 - INFO - Found 5 article URLs from graphic_online
+2025-09-30 10:36:11,181 - WARNING - Request failed for https://businessghana.com/search/Ghana+financial+news: 404 Client Error: Not Found for url: https://businessghana.com/search/Ghana+financial+news
+2025-09-30 10:36:12,564 - INFO - Found 0 article URLs from business_ghana
+2025-09-30 10:36:21,268 - INFO - Found 5 article URLs from citi_newsroom
+2025-09-30 10:36:21,269 - INFO - Scraping 11 articles...
+2025-09-30 10:36:30,309 - INFO - Successfully scraped 5 relevant articles
+2025-09-30 10:36:30,320 - INFO - Saved 5 articles to database
+2025-09-30 10:36:30,324 - INFO - Scraping social media for query: Ghana Stock Exchange
+2025-09-30 10:36:58,239 - INFO - Scraped 19 Reddit posts for query: Ghana Stock Exchange
+2025-09-30 10:37:02,248 - INFO - Scraped 0 LinkedIn posts
+2025-09-30 10:37:06,443 - WARNING - Some characters could not be decoded, and were replaced with REPLACEMENT CHARACTER.
+2025-09-30 10:37:20,616 - WARNING - Request failed for https://nitter.42l.fr/search?f=tweets&q=Ghana+Stock+Exchange: 503 Server Error: Service Unavailable for url: https://nitter.lacontrevoie.fr/search?f=tweets&q=Ghana+Stock+Exchange
+2025-09-30 10:37:20,618 - INFO - Scraped 0 posts from Twitter alternatives
+2025-09-30 10:37:20,619 - WARNING - Facebook scraping is very limited without API access
+2025-09-30 10:37:25,619 - INFO - Scraping social media for query: GSE Ghana
+2025-09-30 10:37:53,108 - INFO - Scraped 5 Reddit posts for query: GSE Ghana
+2025-09-30 10:37:56,179 - INFO - Scraped 0 LinkedIn posts
+2025-09-30 10:37:59,896 - WARNING - Rate limited for https://nitter.net/search?f=tweets&q=GSE+Ghana, waiting longer...
+2025-09-30 10:38:37,643 - WARNING - Request failed for https://nitter.42l.fr/search?f=tweets&q=GSE+Ghana: 503 Server Error: Service Unavailable for url: https://nitter.lacontrevoie.fr/search?f=tweets&q=GSE+Ghana
+2025-09-30 10:38:37,644 - INFO - Scraped 0 posts from Twitter alternatives
+2025-09-30 10:38:37,645 - WARNING - Facebook scraping is very limited without API access
+2025-09-30 10:38:42,646 - INFO - Total unique posts scraped: 23
+2025-09-30 10:38:42,664 - INFO - Saved 23 new social media posts to database
+2025-09-30 10:38:42,690 - INFO - 
+==================================================
+2025-09-30 10:38:42,690 - INFO - SETUP COMPLETED: 7/7 steps successful
+2025-09-30 10:38:42,691 - INFO - ==================================================
+2025-09-30 14:38:42,359 - INFO - ==================================================
+2025-09-30 14:38:42,360 - INFO - GSE SENTIMENT ANALYSIS SYSTEM SETUP
+2025-09-30 14:38:42,360 - INFO - ==================================================
+2025-09-30 14:38:42,452 - INFO - Installing required packages...
+2025-09-30 14:38:49,469 - INFO - Setting up databases...
+2025-09-30 14:38:49,484 - INFO - Loading GSE CSV data...
+2025-09-30 14:38:49,485 - INFO - Loading GSE COMPOSITE INDEX.csv...
+2025-09-30 14:38:49,499 - INFO - Loading GSE FINANCIAL INDEX.csv...
+2025-09-30 14:38:49,528 - INFO - Creating sample sentiment data...
+2025-09-30 14:39:11,179 - INFO - Creating configuration file...
+2025-09-30 14:39:11,198 - INFO - Creating startup scripts...
+2025-09-30 14:39:11,216 - INFO - Running initial data collection...
+2025-09-30 14:39:11,291 - INFO - Collecting news for: Ghana Stock Exchange
+2025-09-30 14:39:17,200 - INFO - Found 0 article URLs from ghanaweb
+2025-09-30 14:39:35,817 - WARNING - Request failed for https://www.myjoyonline.com/search/Ghana+Stock+Exchange: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 14:39:40,612 - INFO - Found 1 article URLs from myjoyonline
+2025-09-30 14:39:43,383 - WARNING - Request failed for https://www.graphic.com.gh/search?q=Ghana+Stock+Exchange: 404 Client Error: Not Found for url: https://www.graphic.com.gh/search?q=Ghana+Stock+Exchange
+2025-09-30 14:39:45,346 - INFO - Found 5 article URLs from graphic_online
+2025-09-30 14:39:48,555 - WARNING - Request failed for https://businessghana.com/search/Ghana+Stock+Exchange: 404 Client Error: Not Found for url: https://businessghana.com/search/Ghana+Stock+Exchange
+2025-09-30 14:39:50,188 - INFO - Found 0 article URLs from business_ghana
+2025-09-30 14:39:58,869 - INFO - Found 5 article URLs from citi_newsroom
+2025-09-30 14:39:58,869 - INFO - Scraping 11 articles...
+2025-09-30 14:40:07,568 - INFO - Successfully scraped 6 relevant articles
+2025-09-30 14:40:07,584 - INFO - Saved 6 articles to database
+2025-09-30 14:40:07,589 - INFO - Collecting news for: GSE trading
+2025-09-30 14:40:13,179 - INFO - Found 0 article URLs from ghanaweb
+2025-09-30 14:40:31,003 - WARNING - Request failed for https://www.myjoyonline.com/search/GSE+trading: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 14:40:33,678 - INFO - Found 1 article URLs from myjoyonline
+2025-09-30 14:40:35,441 - WARNING - Request failed for https://www.graphic.com.gh/search?q=GSE+trading: 404 Client Error: Not Found for url: https://www.graphic.com.gh/search?q=GSE+trading
+2025-09-30 14:40:39,025 - INFO - Found 5 article URLs from graphic_online
+2025-09-30 14:40:41,301 - WARNING - Request failed for https://businessghana.com/search/GSE+trading: 404 Client Error: Not Found for url: https://businessghana.com/search/GSE+trading
+2025-09-30 14:40:44,490 - INFO - Found 0 article URLs from business_ghana
+2025-09-30 14:40:51,527 - INFO - Found 5 article URLs from citi_newsroom
+2025-09-30 14:40:51,527 - INFO - Scraping 11 articles...
+2025-09-30 14:40:59,690 - INFO - Successfully scraped 6 relevant articles
+2025-09-30 14:40:59,719 - INFO - Saved 6 articles to database
+2025-09-30 14:40:59,722 - INFO - Collecting news for: Ghana financial news
+2025-09-30 14:41:05,218 - INFO - Found 0 article URLs from ghanaweb
+2025-09-30 14:41:22,168 - WARNING - Request failed for https://www.myjoyonline.com/search/Ghana+financial+news: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 14:41:26,105 - INFO - Found 1 article URLs from myjoyonline
+2025-09-30 14:41:28,184 - WARNING - Request failed for https://www.graphic.com.gh/search?q=Ghana+financial+news: 404 Client Error: Not Found for url: https://www.graphic.com.gh/search?q=Ghana+financial+news
+2025-09-30 14:41:31,668 - INFO - Found 5 article URLs from graphic_online
+2025-09-30 14:41:33,871 - WARNING - Request failed for https://businessghana.com/search/Ghana+financial+news: 404 Client Error: Not Found for url: https://businessghana.com/search/Ghana+financial+news
+2025-09-30 14:41:36,806 - INFO - Found 0 article URLs from business_ghana
+2025-09-30 14:41:43,392 - INFO - Found 5 article URLs from citi_newsroom
+2025-09-30 14:41:43,392 - INFO - Scraping 11 articles...
+2025-09-30 14:41:51,519 - INFO - Successfully scraped 6 relevant articles
+2025-09-30 14:41:51,579 - INFO - Saved 6 articles to database
+2025-09-30 14:41:51,583 - INFO - Scraping social media for query: Ghana Stock Exchange
+2025-09-30 14:42:18,125 - INFO - Scraped 19 Reddit posts for query: Ghana Stock Exchange
+2025-09-30 14:42:22,649 - INFO - Scraped 0 LinkedIn posts
+2025-09-30 14:42:28,213 - WARNING - Some characters could not be decoded, and were replaced with REPLACEMENT CHARACTER.
+2025-09-30 14:42:41,975 - WARNING - Request failed for https://nitter.42l.fr/search?f=tweets&q=Ghana+Stock+Exchange: 503 Server Error: Service Unavailable for url: https://nitter.lacontrevoie.fr/search?f=tweets&q=Ghana+Stock+Exchange
+2025-09-30 14:42:41,976 - INFO - Scraped 0 posts from Twitter alternatives
+2025-09-30 14:42:41,977 - WARNING - Facebook scraping is very limited without API access
+2025-09-30 14:42:46,977 - INFO - Scraping social media for query: GSE Ghana
+2025-09-30 14:43:14,755 - INFO - Scraped 5 Reddit posts for query: GSE Ghana
+2025-09-30 14:43:18,019 - INFO - Scraped 0 LinkedIn posts
+2025-09-30 14:43:20,898 - WARNING - Rate limited for https://nitter.net/search?f=tweets&q=GSE+Ghana, waiting longer...
+2025-09-30 14:44:00,170 - WARNING - Request failed for https://nitter.42l.fr/search?f=tweets&q=GSE+Ghana: 503 Server Error: Service Unavailable for url: https://nitter.lacontrevoie.fr/search?f=tweets&q=GSE+Ghana
+2025-09-30 14:44:00,172 - INFO - Scraped 0 posts from Twitter alternatives
+2025-09-30 14:44:00,172 - WARNING - Facebook scraping is very limited without API access
+2025-09-30 14:44:05,174 - INFO - Total unique posts scraped: 23
+2025-09-30 14:44:05,186 - INFO - Saved 1 new social media posts to database
+2025-09-30 14:44:05,216 - INFO - 
+==================================================
+2025-09-30 14:44:05,216 - INFO - SETUP COMPLETED: 6/7 steps successful
+2025-09-30 14:44:05,216 - INFO - ==================================================
+2025-09-30 14:44:05,222 - WARNING - Please check the logs and resolve any errors before proceeding.
+2025-09-30 15:13:00,067 - INFO - ==================================================
+2025-09-30 15:13:00,068 - INFO - GSE SENTIMENT ANALYSIS SYSTEM SETUP
+2025-09-30 15:13:00,068 - INFO - ==================================================
+2025-09-30 15:13:00,094 - INFO - Installing required packages...
+2025-09-30 15:13:07,875 - INFO - Setting up databases...
+2025-09-30 15:13:07,895 - INFO - Loading GSE CSV data...
+2025-09-30 15:13:07,895 - INFO - Loading GSE COMPOSITE INDEX.csv...
+2025-09-30 15:13:07,913 - INFO - Loading GSE FINANCIAL INDEX.csv...
+2025-09-30 15:13:07,936 - INFO - Creating sample sentiment data...
+2025-09-30 15:13:31,715 - INFO - Creating configuration file...
+2025-09-30 15:13:31,726 - INFO - Creating startup scripts...
+2025-09-30 15:13:31,735 - INFO - Running initial data collection...
+2025-09-30 15:13:31,828 - INFO - Collecting news for: Ghana Stock Exchange
+2025-09-30 15:13:36,874 - INFO - Found 0 article URLs from ghanaweb
+2025-09-30 15:13:54,712 - WARNING - Request failed for https://www.myjoyonline.com/search/Ghana+Stock+Exchange: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 15:13:58,373 - INFO - Found 1 article URLs from myjoyonline
+2025-09-30 15:14:01,786 - WARNING - Request failed for https://www.graphic.com.gh/search?q=Ghana+Stock+Exchange: 404 Client Error: Not Found for url: https://www.graphic.com.gh/search?q=Ghana+Stock+Exchange
+2025-09-30 15:14:04,026 - INFO - Found 5 article URLs from graphic_online
+2025-09-30 15:14:06,364 - WARNING - Request failed for https://businessghana.com/search/Ghana+Stock+Exchange: 404 Client Error: Not Found for url: https://businessghana.com/search/Ghana+Stock+Exchange
+2025-09-30 15:14:08,187 - INFO - Found 0 article URLs from business_ghana
+2025-09-30 15:14:15,768 - INFO - Found 5 article URLs from citi_newsroom
+2025-09-30 15:14:15,768 - INFO - Scraping 11 articles...
+2025-09-30 15:14:25,614 - INFO - Successfully scraped 7 relevant articles
+2025-09-30 15:14:25,640 - INFO - Saved 7 articles to database
+2025-09-30 15:14:25,642 - INFO - Collecting news for: GSE trading
+2025-09-30 15:14:31,903 - INFO - Found 0 article URLs from ghanaweb
+2025-09-30 15:14:49,603 - WARNING - Request failed for https://www.myjoyonline.com/search/GSE+trading: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 15:14:52,849 - INFO - Found 1 article URLs from myjoyonline
+2025-09-30 15:14:55,284 - WARNING - Request failed for https://www.graphic.com.gh/search?q=GSE+trading: 404 Client Error: Not Found for url: https://www.graphic.com.gh/search?q=GSE+trading
+2025-09-30 15:14:57,953 - INFO - Found 5 article URLs from graphic_online
+2025-09-30 15:15:01,007 - WARNING - Request failed for https://businessghana.com/search/GSE+trading: 404 Client Error: Not Found for url: https://businessghana.com/search/GSE+trading
+2025-09-30 15:15:02,545 - INFO - Found 0 article URLs from business_ghana
+2025-09-30 15:15:09,118 - INFO - Found 5 article URLs from citi_newsroom
+2025-09-30 15:15:09,119 - INFO - Scraping 11 articles...
+2025-09-30 15:15:17,190 - INFO - Successfully scraped 7 relevant articles
+2025-09-30 15:15:17,237 - INFO - Saved 7 articles to database
+2025-09-30 15:15:17,240 - INFO - Collecting news for: Ghana financial news
+2025-09-30 15:15:23,051 - INFO - Found 0 article URLs from ghanaweb
+2025-09-30 15:15:40,677 - WARNING - Request failed for https://www.myjoyonline.com/search/Ghana+financial+news: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 15:15:44,080 - INFO - Found 1 article URLs from myjoyonline
+2025-09-30 15:15:47,802 - WARNING - Request failed for https://www.graphic.com.gh/search?q=Ghana+financial+news: 404 Client Error: Not Found for url: https://www.graphic.com.gh/search?q=Ghana+financial+news
+2025-09-30 15:15:50,590 - INFO - Found 5 article URLs from graphic_online
+2025-09-30 15:15:53,332 - WARNING - Request failed for https://businessghana.com/search/Ghana+financial+news: 404 Client Error: Not Found for url: https://businessghana.com/search/Ghana+financial+news
+2025-09-30 15:15:56,386 - INFO - Found 0 article URLs from business_ghana
+2025-09-30 15:16:04,250 - INFO - Found 5 article URLs from citi_newsroom
+2025-09-30 15:16:04,250 - INFO - Scraping 11 articles...
+2025-09-30 15:16:23,198 - WARNING - Request failed for https://www.myjoyonline.com/news/: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 15:16:23,200 - INFO - Successfully scraped 7 relevant articles
+2025-09-30 15:16:23,229 - INFO - Saved 7 articles to database
+2025-09-30 15:16:23,243 - INFO - Scraping social media for query: Ghana Stock Exchange
+2025-09-30 15:16:51,598 - INFO - Scraped 19 Reddit posts for query: Ghana Stock Exchange
+2025-09-30 15:16:51,598 - WARNING - LinkedIn API keys not configured, falling back to limited scraping
+2025-09-30 15:16:51,598 - WARNING - LinkedIn scraping is very limited without API access
+2025-09-30 15:16:58,237 - INFO - Scraped 0 LinkedIn posts (fallback)
+2025-09-30 15:17:04,522 - WARNING - Rate limited for https://nitter.net/search?f=tweets&q=Ghana+Stock+Exchange, waiting longer...
+2025-09-30 15:17:48,366 - WARNING - Request failed for https://nitter.42l.fr/search?f=tweets&q=Ghana+Stock+Exchange: 503 Server Error: Service Unavailable for url: https://nitter.lacontrevoie.fr/search?f=tweets&q=Ghana+Stock+Exchange
+2025-09-30 15:17:48,367 - INFO - Scraped 0 posts from Twitter alternatives
+2025-09-30 15:17:48,368 - WARNING - Facebook API keys not configured, falling back to limited scraping
+2025-09-30 15:17:48,368 - WARNING - Facebook scraping is very limited without API access
+2025-09-30 15:17:53,369 - INFO - Scraping social media for query: GSE Ghana
+2025-09-30 15:18:23,375 - INFO - Scraped 5 Reddit posts for query: GSE Ghana
+2025-09-30 15:18:23,375 - WARNING - LinkedIn API keys not configured, falling back to limited scraping
+2025-09-30 15:18:23,376 - WARNING - LinkedIn scraping is very limited without API access
+2025-09-30 15:18:27,572 - INFO - Scraped 0 LinkedIn posts (fallback)
+2025-09-30 15:18:32,962 - WARNING - Rate limited for https://nitter.net/search?f=tweets&q=GSE+Ghana, waiting longer...
+2025-09-30 15:19:11,997 - WARNING - Request failed for https://nitter.42l.fr/search?f=tweets&q=GSE+Ghana: 503 Server Error: Service Unavailable for url: https://nitter.lacontrevoie.fr/search?f=tweets&q=GSE+Ghana
+2025-09-30 15:19:11,999 - INFO - Scraped 0 posts from Twitter alternatives
+2025-09-30 15:19:12,000 - WARNING - Facebook API keys not configured, falling back to limited scraping
+2025-09-30 15:19:12,000 - WARNING - Facebook scraping is very limited without API access
+2025-09-30 15:19:17,002 - INFO - Total unique posts scraped: 23
+2025-09-30 15:19:17,021 - INFO - Saved 0 new social media posts to database
+2025-09-30 15:19:17,097 - INFO - 
+==================================================
+2025-09-30 15:19:17,097 - INFO - SETUP COMPLETED: 6/7 steps successful
+2025-09-30 15:19:17,098 - INFO - ==================================================
+2025-09-30 15:19:17,104 - WARNING - Please check the logs and resolve any errors before proceeding.
+2025-09-30 15:23:59,298 - INFO - ==================================================
+2025-09-30 15:23:59,298 - INFO - GSE SENTIMENT ANALYSIS SYSTEM SETUP
+2025-09-30 15:23:59,299 - INFO - ==================================================
+2025-09-30 15:23:59,302 - INFO - Installing required packages...
+2025-09-30 15:24:07,710 - INFO - Setting up databases...
+2025-09-30 15:24:07,715 - INFO - Loading GSE CSV data...
+2025-09-30 15:24:07,715 - INFO - Loading GSE COMPOSITE INDEX.csv...
+2025-09-30 15:24:07,734 - INFO - Loading GSE FINANCIAL INDEX.csv...
+2025-09-30 15:24:07,748 - INFO - Creating sample sentiment data...
+2025-09-30 15:24:33,602 - INFO - Creating configuration file...
+2025-09-30 15:24:33,606 - INFO - Creating startup scripts...
+2025-09-30 15:24:33,616 - INFO - Running initial data collection...
+2025-09-30 15:24:33,818 - INFO - Collecting news for: Ghana Stock Exchange
+2025-09-30 15:24:39,752 - INFO - Found 0 article URLs from ghanaweb
+2025-09-30 15:24:57,458 - WARNING - Request failed for https://www.myjoyonline.com/search/Ghana+Stock+Exchange: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 15:25:01,644 - INFO - Found 1 article URLs from myjoyonline
+2025-09-30 15:25:04,914 - WARNING - Request failed for https://www.graphic.com.gh/search?q=Ghana+Stock+Exchange: 404 Client Error: Not Found for url: https://www.graphic.com.gh/search?q=Ghana+Stock+Exchange
+2025-09-30 15:25:07,261 - INFO - Found 5 article URLs from graphic_online
+2025-09-30 15:25:09,878 - WARNING - Request failed for https://businessghana.com/search/Ghana+Stock+Exchange: 404 Client Error: Not Found for url: https://businessghana.com/search/Ghana+Stock+Exchange
+2025-09-30 15:25:12,644 - INFO - Found 0 article URLs from business_ghana
+2025-09-30 15:25:22,357 - INFO - Found 5 article URLs from citi_newsroom
+2025-09-30 15:25:22,357 - INFO - Scraping 11 articles...
+2025-09-30 15:25:30,250 - INFO - Successfully scraped 7 relevant articles
+2025-09-30 15:25:30,273 - INFO - Saved 7 articles to database
+2025-09-30 15:25:30,275 - INFO - Collecting news for: GSE trading
+2025-09-30 15:25:36,309 - INFO - Found 0 article URLs from ghanaweb
+2025-09-30 15:25:54,998 - WARNING - Request failed for https://www.myjoyonline.com/search/GSE+trading: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 15:26:02,673 - INFO - Found 1 article URLs from myjoyonline
+2025-09-30 15:26:04,953 - WARNING - Request failed for https://www.graphic.com.gh/search?q=GSE+trading: 404 Client Error: Not Found for url: https://www.graphic.com.gh/search?q=GSE+trading
+2025-09-30 15:26:08,194 - INFO - Found 5 article URLs from graphic_online
+2025-09-30 15:26:10,191 - WARNING - Request failed for https://businessghana.com/search/GSE+trading: 404 Client Error: Not Found for url: https://businessghana.com/search/GSE+trading
+2025-09-30 15:26:12,824 - INFO - Found 0 article URLs from business_ghana
+2025-09-30 15:26:20,248 - INFO - Found 5 article URLs from citi_newsroom
+2025-09-30 15:26:20,249 - INFO - Scraping 11 articles...
+2025-09-30 15:26:33,259 - INFO - Successfully scraped 7 relevant articles
+2025-09-30 15:26:33,304 - INFO - Saved 7 articles to database
+2025-09-30 15:26:33,305 - INFO - Collecting news for: Ghana financial news
+2025-09-30 15:26:37,837 - INFO - Found 0 article URLs from ghanaweb
+2025-09-30 15:26:55,518 - WARNING - Request failed for https://www.myjoyonline.com/search/Ghana+financial+news: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 15:26:59,380 - INFO - Found 1 article URLs from myjoyonline
+2025-09-30 15:27:02,203 - WARNING - Request failed for https://www.graphic.com.gh/search?q=Ghana+financial+news: 404 Client Error: Not Found for url: https://www.graphic.com.gh/search?q=Ghana+financial+news
+2025-09-30 15:27:05,133 - INFO - Found 5 article URLs from graphic_online
+2025-09-30 15:27:07,709 - WARNING - Request failed for https://businessghana.com/search/Ghana+financial+news: 404 Client Error: Not Found for url: https://businessghana.com/search/Ghana+financial+news
+2025-09-30 15:27:10,786 - INFO - Found 0 article URLs from business_ghana
+2025-09-30 15:27:18,432 - INFO - Found 5 article URLs from citi_newsroom
+2025-09-30 15:27:18,432 - INFO - Scraping 11 articles...
+2025-09-30 15:27:26,868 - INFO - Successfully scraped 7 relevant articles
+2025-09-30 15:27:26,879 - INFO - Saved 7 articles to database
+2025-09-30 15:27:26,883 - INFO - Scraping social media for query: Ghana Stock Exchange
+2025-09-30 15:27:33,164 - INFO - ==================================================
+2025-09-30 15:27:33,164 - INFO - GSE SENTIMENT ANALYSIS SYSTEM SETUP
+2025-09-30 15:27:33,165 - INFO - ==================================================
+2025-09-30 15:27:33,168 - INFO - Installing required packages...
+2025-09-30 15:27:35,418 - INFO - Setting up databases...
+2025-09-30 15:27:35,425 - INFO - Loading GSE CSV data...
+2025-09-30 15:27:35,425 - INFO - Loading GSE COMPOSITE INDEX.csv...
+2025-09-30 15:27:35,429 - INFO - Loading GSE FINANCIAL INDEX.csv...
+2025-09-30 15:27:35,436 - INFO - Creating sample sentiment data...
+2025-09-30 15:27:37,863 - INFO - Creating configuration file...
+2025-09-30 15:27:37,871 - INFO - Creating startup scripts...
+2025-09-30 15:27:37,881 - INFO - Running initial data collection...
+2025-09-30 15:27:37,920 - INFO - Collecting news for: Ghana Stock Exchange
+2025-09-30 15:27:42,018 - INFO - Found 0 article URLs from ghanaweb
+2025-09-30 15:27:51,261 - INFO - Scraped 19 Reddit posts for query: Ghana Stock Exchange
+2025-09-30 15:27:51,262 - WARNING - LinkedIn API keys not configured, falling back to limited scraping
+2025-09-30 15:27:51,262 - WARNING - LinkedIn scraping is very limited without API access
+2025-09-30 15:27:56,921 - INFO - Scraped 0 LinkedIn posts (fallback)
+2025-09-30 15:27:56,922 - WARNING - Twitter API keys not configured, falling back to Nitter
+2025-09-30 15:28:00,367 - WARNING - Rate limited for https://nitter.net/search?f=tweets&q=Ghana+Stock+Exchange, waiting longer...
+2025-09-30 15:28:00,857 - WARNING - Request failed for https://www.myjoyonline.com/search/Ghana+Stock+Exchange: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 15:28:04,766 - INFO - Found 1 article URLs from myjoyonline
+2025-09-30 15:28:08,519 - WARNING - Request failed for https://www.graphic.com.gh/search?q=Ghana+Stock+Exchange: 404 Client Error: Not Found for url: https://www.graphic.com.gh/search?q=Ghana+Stock+Exchange
+2025-09-30 15:28:11,588 - INFO - Found 5 article URLs from graphic_online
+2025-09-30 15:28:15,325 - WARNING - Request failed for https://businessghana.com/search/Ghana+Stock+Exchange: 404 Client Error: Not Found for url: https://businessghana.com/search/Ghana+Stock+Exchange
+2025-09-30 15:28:18,301 - INFO - Found 0 article URLs from business_ghana
+2025-09-30 15:28:27,183 - INFO - Found 5 article URLs from citi_newsroom
+2025-09-30 15:28:27,183 - INFO - Scraping 11 articles...
+2025-09-30 15:28:34,478 - INFO - Successfully scraped 7 relevant articles
+2025-09-30 15:28:34,496 - INFO - Saved 7 articles to database
+2025-09-30 15:28:34,500 - INFO - Collecting news for: GSE trading
+2025-09-30 15:28:38,933 - WARNING - Request failed for https://nitter.42l.fr/search?f=tweets&q=Ghana+Stock+Exchange: 503 Server Error: Service Unavailable for url: https://nitter.lacontrevoie.fr/search?f=tweets&q=Ghana+Stock+Exchange
+2025-09-30 15:28:38,934 - INFO - Scraped 0 posts from Twitter alternatives (Nitter)
+2025-09-30 15:28:38,934 - WARNING - Facebook API keys not configured, falling back to limited scraping
+2025-09-30 15:28:38,934 - WARNING - Facebook scraping is very limited without API access
+2025-09-30 15:28:39,282 - INFO - Found 0 article URLs from ghanaweb
+2025-09-30 15:28:43,934 - INFO - Scraping social media for query: GSE Ghana
+2025-09-30 15:28:56,553 - WARNING - Request failed for https://www.myjoyonline.com/search/GSE+trading: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 15:29:00,081 - INFO - Found 1 article URLs from myjoyonline
+2025-09-30 15:29:02,297 - WARNING - Request failed for https://www.graphic.com.gh/search?q=GSE+trading: 404 Client Error: Not Found for url: https://www.graphic.com.gh/search?q=GSE+trading
+2025-09-30 15:29:05,972 - INFO - Found 5 article URLs from graphic_online
+2025-09-30 15:29:09,415 - WARNING - Request failed for https://businessghana.com/search/GSE+trading: 404 Client Error: Not Found for url: https://businessghana.com/search/GSE+trading
+2025-09-30 15:29:11,137 - INFO - Found 0 article URLs from business_ghana
+2025-09-30 15:29:12,875 - INFO - Scraped 5 Reddit posts for query: GSE Ghana
+2025-09-30 15:29:12,875 - WARNING - LinkedIn API keys not configured, falling back to limited scraping
+2025-09-30 15:29:12,876 - WARNING - LinkedIn scraping is very limited without API access
+2025-09-30 15:29:17,209 - INFO - Scraped 0 LinkedIn posts (fallback)
+2025-09-30 15:29:17,210 - WARNING - Twitter API keys not configured, falling back to Nitter
+2025-09-30 15:29:17,231 - INFO - Found 5 article URLs from citi_newsroom
+2025-09-30 15:29:17,232 - INFO - Scraping 11 articles...
+2025-09-30 15:29:20,860 - WARNING - Rate limited for https://nitter.net/search?f=tweets&q=GSE+Ghana, waiting longer...
+2025-09-30 15:29:23,603 - INFO - Successfully scraped 7 relevant articles
+2025-09-30 15:29:23,626 - INFO - Saved 7 articles to database
+2025-09-30 15:29:23,632 - INFO - Collecting news for: Ghana financial news
+2025-09-30 15:29:28,180 - INFO - Found 0 article URLs from ghanaweb
+2025-09-30 15:29:46,215 - WARNING - Request failed for https://www.myjoyonline.com/search/Ghana+financial+news: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 15:29:50,082 - INFO - Found 1 article URLs from myjoyonline
+2025-09-30 15:29:53,019 - WARNING - Request failed for https://www.graphic.com.gh/search?q=Ghana+financial+news: 404 Client Error: Not Found for url: https://www.graphic.com.gh/search?q=Ghana+financial+news
+2025-09-30 15:29:56,581 - INFO - Found 5 article URLs from graphic_online
+2025-09-30 15:29:59,979 - WARNING - Request failed for https://businessghana.com/search/Ghana+financial+news: 404 Client Error: Not Found for url: https://businessghana.com/search/Ghana+financial+news
+2025-09-30 15:30:00,846 - WARNING - Request failed for https://nitter.42l.fr/search?f=tweets&q=GSE+Ghana: 503 Server Error: Service Unavailable for url: https://nitter.lacontrevoie.fr/search?f=tweets&q=GSE+Ghana
+2025-09-30 15:30:00,847 - INFO - Scraped 0 posts from Twitter alternatives (Nitter)
+2025-09-30 15:30:00,847 - WARNING - Facebook API keys not configured, falling back to limited scraping
+2025-09-30 15:30:00,847 - WARNING - Facebook scraping is very limited without API access
+2025-09-30 15:30:02,469 - INFO - Found 0 article URLs from business_ghana
+2025-09-30 15:30:05,849 - INFO - Total unique posts scraped: 23
+2025-09-30 15:30:05,889 - INFO - Saved 0 new social media posts to database
+2025-09-30 15:30:05,897 - INFO - 
+==================================================
+2025-09-30 15:30:05,897 - INFO - SETUP COMPLETED: 6/7 steps successful
+2025-09-30 15:30:05,897 - INFO - ==================================================
+2025-09-30 15:30:05,898 - WARNING - Please check the logs and resolve any errors before proceeding.
+2025-09-30 15:30:11,167 - INFO - Found 5 article URLs from citi_newsroom
+2025-09-30 15:30:11,168 - INFO - Scraping 11 articles...
+2025-09-30 15:30:18,314 - INFO - Successfully scraped 7 relevant articles
+2025-09-30 15:30:18,357 - INFO - Saved 7 articles to database
+2025-09-30 15:30:18,369 - INFO - Scraping social media for query: Ghana Stock Exchange
+2025-09-30 15:30:49,400 - INFO - Scraped 19 Reddit posts for query: Ghana Stock Exchange
+2025-09-30 15:30:49,401 - WARNING - LinkedIn API keys not configured, falling back to limited scraping
+2025-09-30 15:30:49,401 - WARNING - LinkedIn scraping is very limited without API access
+2025-09-30 15:30:53,660 - INFO - Scraped 0 LinkedIn posts (fallback)
+2025-09-30 15:30:53,660 - WARNING - Twitter API keys not configured, falling back to Nitter
+2025-09-30 15:30:56,810 - WARNING - Rate limited for https://nitter.net/search?f=tweets&q=Ghana+Stock+Exchange, waiting longer...
+2025-09-30 15:31:39,205 - WARNING - Request failed for https://nitter.42l.fr/search?f=tweets&q=Ghana+Stock+Exchange: 503 Server Error: Service Unavailable for url: https://nitter.lacontrevoie.fr/search?f=tweets&q=Ghana+Stock+Exchange
+2025-09-30 15:31:39,207 - INFO - Scraped 0 posts from Twitter alternatives (Nitter)
+2025-09-30 15:31:39,207 - WARNING - Facebook API keys not configured, falling back to limited scraping
+2025-09-30 15:31:39,207 - WARNING - Facebook scraping is very limited without API access
+2025-09-30 15:31:44,208 - INFO - Scraping social media for query: GSE Ghana
+2025-09-30 15:32:10,335 - INFO - Scraped 5 Reddit posts for query: GSE Ghana
+2025-09-30 15:32:10,336 - WARNING - LinkedIn API keys not configured, falling back to limited scraping
+2025-09-30 15:32:10,336 - WARNING - LinkedIn scraping is very limited without API access
+2025-09-30 15:32:15,478 - INFO - Scraped 0 LinkedIn posts (fallback)
+2025-09-30 15:32:15,478 - WARNING - Twitter API keys not configured, falling back to Nitter
+2025-09-30 15:32:19,038 - WARNING - Rate limited for https://nitter.net/search?f=tweets&q=GSE+Ghana, waiting longer...
+2025-09-30 15:32:57,747 - WARNING - Request failed for https://nitter.42l.fr/search?f=tweets&q=GSE+Ghana: 503 Server Error: Service Unavailable for url: https://nitter.lacontrevoie.fr/search?f=tweets&q=GSE+Ghana
+2025-09-30 15:32:57,748 - INFO - Scraped 0 posts from Twitter alternatives (Nitter)
+2025-09-30 15:32:57,749 - WARNING - Facebook API keys not configured, falling back to limited scraping
+2025-09-30 15:32:57,749 - WARNING - Facebook scraping is very limited without API access
+2025-09-30 15:33:02,751 - INFO - Total unique posts scraped: 23
+2025-09-30 15:33:02,806 - INFO - Saved 0 new social media posts to database
+2025-09-30 15:33:02,828 - INFO - 
+==================================================
+2025-09-30 15:33:02,829 - INFO - SETUP COMPLETED: 6/7 steps successful
+2025-09-30 15:33:02,829 - INFO - ==================================================
+2025-09-30 15:33:02,831 - WARNING - Please check the logs and resolve any errors before proceeding.
+2025-09-30 15:34:33,992 - INFO - ==================================================
+2025-09-30 15:34:33,992 - INFO - GSE SENTIMENT ANALYSIS SYSTEM SETUP
+2025-09-30 15:34:33,992 - INFO - ==================================================
+2025-09-30 15:34:34,001 - INFO - Installing required packages...
+2025-09-30 15:34:37,234 - INFO - Setting up databases...
+2025-09-30 15:34:37,240 - INFO - Loading GSE CSV data...
+2025-09-30 15:34:37,240 - INFO - Loading GSE COMPOSITE INDEX.csv...
+2025-09-30 15:34:37,246 - INFO - Loading GSE FINANCIAL INDEX.csv...
+2025-09-30 15:34:37,257 - INFO - Creating sample sentiment data...
+2025-09-30 15:34:41,248 - INFO - Creating configuration file...
+2025-09-30 15:34:41,249 - INFO - Found existing config.json, preserving API keys
+2025-09-30 15:34:41,253 - INFO - Creating startup scripts...
+2025-09-30 15:34:41,272 - INFO - Running initial data collection...
+2025-09-30 15:34:41,340 - INFO - Collecting news for: Ghana Stock Exchange
+2025-09-30 15:34:46,714 - INFO - Found 0 article URLs from ghanaweb
+2025-09-30 15:35:04,378 - WARNING - Request failed for https://www.myjoyonline.com/search/Ghana+Stock+Exchange: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 15:35:08,160 - INFO - Found 1 article URLs from myjoyonline
+2025-09-30 15:35:11,027 - WARNING - Request failed for https://www.graphic.com.gh/search?q=Ghana+Stock+Exchange: 404 Client Error: Not Found for url: https://www.graphic.com.gh/search?q=Ghana+Stock+Exchange
+2025-09-30 15:35:13,989 - INFO - Found 5 article URLs from graphic_online
+2025-09-30 15:35:16,088 - WARNING - Request failed for https://businessghana.com/search/Ghana+Stock+Exchange: 404 Client Error: Not Found for url: https://businessghana.com/search/Ghana+Stock+Exchange
+2025-09-30 15:35:18,036 - INFO - Found 0 article URLs from business_ghana
+2025-09-30 15:35:26,703 - INFO - Found 5 article URLs from citi_newsroom
+2025-09-30 15:35:26,704 - INFO - Scraping 11 articles...
+2025-09-30 15:35:35,117 - INFO - Successfully scraped 8 relevant articles
+2025-09-30 15:35:35,150 - INFO - Saved 8 articles to database
+2025-09-30 15:35:35,153 - INFO - Collecting news for: GSE trading
+2025-09-30 15:35:40,425 - INFO - Found 0 article URLs from ghanaweb
+2025-09-30 15:35:57,410 - WARNING - Request failed for https://www.myjoyonline.com/search/GSE+trading: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 15:36:02,136 - INFO - Found 1 article URLs from myjoyonline
+2025-09-30 15:36:04,965 - WARNING - Request failed for https://www.graphic.com.gh/search?q=GSE+trading: 404 Client Error: Not Found for url: https://www.graphic.com.gh/search?q=GSE+trading
+2025-09-30 15:36:08,048 - INFO - Found 5 article URLs from graphic_online
+2025-09-30 15:36:11,589 - WARNING - Request failed for https://businessghana.com/search/GSE+trading: 404 Client Error: Not Found for url: https://businessghana.com/search/GSE+trading
+2025-09-30 15:36:14,459 - INFO - Found 0 article URLs from business_ghana
+2025-09-30 15:36:21,569 - INFO - Found 5 article URLs from citi_newsroom
+2025-09-30 15:36:21,569 - INFO - Scraping 11 articles...
+2025-09-30 15:36:32,020 - INFO - Successfully scraped 8 relevant articles
+2025-09-30 15:36:32,063 - INFO - Saved 8 articles to database
+2025-09-30 15:36:32,064 - INFO - Collecting news for: Ghana financial news
+2025-09-30 15:36:36,902 - INFO - Found 0 article URLs from ghanaweb
+2025-09-30 15:36:54,703 - WARNING - Request failed for https://www.myjoyonline.com/search/Ghana+financial+news: HTTPSConnectionPool(host='www.myjoyonline.com', port=443): Read timed out. (read timeout=15)
+2025-09-30 15:36:57,829 - INFO - Found 1 article URLs from myjoyonline
+2025-09-30 15:36:59,615 - WARNING - Request failed for https://www.graphic.com.gh/search?q=Ghana+financial+news: 404 Client Error: Not Found for url: https://www.graphic.com.gh/search?q=Ghana+financial+news
+2025-09-30 15:37:02,162 - INFO - Found 5 article URLs from graphic_online
+2025-09-30 15:37:04,736 - WARNING - Request failed for https://businessghana.com/search/Ghana+financial+news: 404 Client Error: Not Found for url: https://businessghana.com/search/Ghana+financial+news
+2025-09-30 15:37:06,272 - INFO - Found 0 article URLs from business_ghana
+2025-09-30 15:37:14,195 - INFO - Found 5 article URLs from citi_newsroom
+2025-09-30 15:37:14,195 - INFO - Scraping 11 articles...
+2025-09-30 15:37:22,982 - INFO - Successfully scraped 8 relevant articles
+2025-09-30 15:37:23,018 - INFO - Saved 8 articles to database
+2025-09-30 15:37:23,022 - INFO - Scraping social media for query: Ghana Stock Exchange
+2025-09-30 15:37:57,046 - INFO - Scraped 19 Reddit posts for query: Ghana Stock Exchange
+2025-09-30 15:37:57,046 - WARNING - LinkedIn API keys not configured, falling back to limited scraping
+2025-09-30 15:37:57,046 - WARNING - LinkedIn scraping is very limited without API access
+2025-09-30 15:38:01,530 - INFO - Scraped 0 LinkedIn posts (fallback)
+2025-09-30 15:38:01,530 - WARNING - Twitter API keys not configured, falling back to Nitter
+2025-09-30 15:38:20,000 - WARNING - Request failed for https://nitter.42l.fr/search?f=tweets&q=Ghana+Stock+Exchange: 503 Server Error: Service Unavailable for url: https://nitter.lacontrevoie.fr/search?f=tweets&q=Ghana+Stock+Exchange
+2025-09-30 15:38:20,000 - INFO - Scraped 0 posts from Twitter alternatives (Nitter)
+2025-09-30 15:38:20,000 - WARNING - Facebook API keys not configured, falling back to limited scraping
+2025-09-30 15:38:20,000 - WARNING - Facebook scraping is very limited without API access
+2025-09-30 15:38:25,001 - INFO - Scraping social media for query: GSE Ghana
+2025-09-30 15:38:52,640 - INFO - Scraped 5 Reddit posts for query: GSE Ghana
+2025-09-30 15:38:52,641 - WARNING - LinkedIn API keys not configured, falling back to limited scraping
+2025-09-30 15:38:52,641 - WARNING - LinkedIn scraping is very limited without API access
+2025-09-30 15:38:57,970 - INFO - Scraped 0 LinkedIn posts (fallback)
+2025-09-30 15:38:57,970 - WARNING - Twitter API keys not configured, falling back to Nitter
+2025-09-30 15:39:00,725 - WARNING - Rate limited for https://nitter.net/search?f=tweets&q=GSE+Ghana, waiting longer...
+2025-09-30 15:39:37,919 - WARNING - Request failed for https://nitter.42l.fr/search?f=tweets&q=GSE+Ghana: 503 Server Error: Service Unavailable for url: https://nitter.lacontrevoie.fr/search?f=tweets&q=GSE+Ghana
+2025-09-30 15:39:37,920 - INFO - Scraped 0 posts from Twitter alternatives (Nitter)
+2025-09-30 15:39:37,920 - WARNING - Facebook API keys not configured, falling back to limited scraping
+2025-09-30 15:39:37,920 - WARNING - Facebook scraping is very limited without API access
+2025-09-30 15:39:42,921 - INFO - Total unique posts scraped: 23
+2025-09-30 15:39:42,951 - INFO - Saved 0 new social media posts to database
+2025-09-30 15:39:42,955 - INFO - 
+==================================================
+2025-09-30 15:39:42,955 - INFO - SETUP COMPLETED: 6/7 steps successful
+2025-09-30 15:39:42,955 - INFO - ==================================================
+2025-09-30 15:39:42,956 - WARNING - Please check the logs and resolve any errors before proceeding.

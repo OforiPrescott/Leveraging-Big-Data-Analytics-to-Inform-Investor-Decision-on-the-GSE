@@ -1,0 +1,63 @@
+# GSE Sentiment Analysis System Requirements (Python 3.13 Compatible)
+
+# Core libraries
+pandas
+numpy
+matplotlib
+seaborn
+
+# Web scraping
+requests
+beautifulsoup4
+feedparser
+
+# Natural Language Processing
+nltk
+textblob
+vaderSentiment
+transformers
+torch
+
+# Machine Learning
+scikit-learn
+xgboost
+lightgbm
+catboost
+
+# Data storage
+sqlalchemy
+
+# Web dashboard
+streamlit
+plotly
+dash
+
+# Financial data
+yfinance
+alpha_vantage
+
+# Scheduling and automation
+schedule
+python-crontab
+
+# Utilities
+python-dateutil
+pytz
+tqdm
+colorama
+
+# Optional: For advanced NLP
+spacy
+# Run separately: python -m spacy download en_core_web_sm
+
+# Optional: For better visualization
+wordcloud
+bokeh
+
+# Optional: For API creation
+fastapi
+uvicorn
+
+# Optional: For enhanced data processing
+dask
+polars

@@ -1,0 +1,70 @@
+{
+  "database": {
+    "path": "c:\\Users\\user\\Desktop\\Leveraging Big Data Analytics to Inform Investor Decision on the GSE\\data\\gse_sentiment.db",
+    "backup_interval_hours": 24
+  },
+  "data_collection": {
+    "news_sources": [
+      "ghanaweb",
+      "myjoyonline",
+      "graphic_online",
+      "business_ghana",
+      "citi_newsroom"
+    ],
+    "social_platforms": [
+      "reddit",
+      "linkedin",
+      "twitter"
+    ],
+    "collection_interval_hours": 6,
+    "max_articles_per_source": 20
+  },
+  "sentiment_analysis": {
+    "models": [
+      "vader",
+      "textblob",
+      "bert"
+    ],
+    "confidence_threshold": 0.5,
+    "relevance_threshold": 0.1
+  },
+  "prediction_models": {
+    "algorithms": [
+      "random_forest",
+      "gradient_boosting",
+      "logistic_regression"
+    ],
+    "retrain_interval_days": 7,
+    "feature_window_days": 30
+  },
+  "dashboard": {
+    "port": 8501,
+    "refresh_interval_minutes": 30
+  },
+  "logging": {
+    "level": "INFO",
+    "log_file": "c:\\Users\\user\\Desktop\\Leveraging Big Data Analytics to Inform Investor Decision on the GSE\\logs\\gse_system.log",
+    "max_log_size_mb": 10
+  },
+  "api_keys": {
+    "facebook": {
+      "app_id": "1148872483842761",
+      "app_secret": "",
+      "access_token": "EAAQU5LhKqskBPhBKZCu5AX4vs2vHKIf8D0PlRwnHplvH5ovoUAV36HxJ6ldJjbUC2nUO8Ge8DJSWL7KIlJgn7HsjZCHNTtWFCLug0tJlAN2ZCsOmuggX9Gx7HCQ7fLTaKGs9JNyHSyZCFXi0I0nSge1cQaS7L5DgIeM2NPhCs2hfvipooQI48roVLbtW0DXno2k1BqxEYOvZAmaMbh0HYjCePbbJO44vZB0E8GXtIU0ZBnzmQZDZD",
+      "page_access_token": ""
+    },
+    "linkedin": {
+      "client_id": "",
+      "client_secret": "",
+      "access_token": "",
+      "refresh_token": ""
+    },
+    "twitter": {
+      "api_key": "JFuE2RXGxLgGLZAPzjJmWbm1O",
+      "api_secret": "8uxZIWKoVy19rZMh4hd3FkCJrS6zx74jvFZ65C6tPWObOeEbFe",
+      "access_token": "1493554579463720962-owXWVLNL8zHgDsgtWh5hyaBr7AhcAH",
+      "access_token_secret": "s81wV20LWyHUwBVGGDpP0zL5RUIytEdxOxOil5dFlGeQ3",
+      "bearer_token": "AAAAAAAAAAAAAAAAAAAAAM1A3gEAAAAAEmpoJvh3x%2F6R7NL9ROrIdXvBhI4%3DgUF0edM52d3Q7QpoIJOEYCNKzGARjImTEF2REe0ODKW6KfhrxC"
+    }
+  }
+}
