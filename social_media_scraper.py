@@ -234,80 +234,23 @@ class SocialMediaScraper:
             return []
 
     def _scrape_linkedin_api(self, query: str, limit: int, api_keys: Dict[str, str]) -> List[Dict]:
-        """Scrape LinkedIn using API"""
+        """Scrape LinkedIn using API - Limited access available"""
         posts = []
 
         try:
             access_token = api_keys.get('access_token')
             if not access_token:
-                logger.error("LinkedIn access token not found")
-                return []
+                logger.warning("LinkedIn access token not found - using fallback")
+                return self._scrape_linkedin_fallback(query, limit)
 
-            # LinkedIn API search endpoint (UGC posts)
-            search_url = "https://api.linkedin.com/v2/ugcPosts"
-            headers = {
-                'Authorization': f'Bearer {access_token}',
-                'X-Restli-Protocol-Version': '2.0.0'
-            }
-
-            # Search parameters
-            params = {
-                'q': 'search',
-                'keywords': query,
-                'count': min(limit, 50)  # API limit
-            }
-
-            response = self._make_request(search_url, headers=headers, params=params)
-            if not response:
-                return []
-
-            data = response.json()
-
-            if 'elements' in data:
-                for post in data['elements'][:limit]:
-                    try:
-                        # Extract post content
-                        content = ""
-                        if 'specificContent' in post and 'com.linkedin.ugc.ShareContent' in post['specificContent']:
-                            share_content = post['specificContent']['com.linkedin.ugc.ShareContent']
-                            if 'text' in share_content:
-                                content = share_content['text']
-
-                        # Extract author info
-                        author = "Unknown"
-                        if 'author' in post:
-                            author = post['author'].get('vanityName', 'Unknown')
-
-                        # Extract timestamp
-                        created_time = datetime.now()
-                        if 'created' in post and 'time' in post['created']:
-                            created_time = datetime.fromtimestamp(post['created']['time'] / 1000)
-
-                        if content and len(content) > 10:
-                            post_info = {
-                                'platform': 'linkedin',
-                                'title': content[:100] + "..." if len(content) > 100 else content,
-                                'content': content,
-                                'author': author,
-                                'created_at': created_time,
-                                'scraped_at': datetime.now(),
-                                'url': f"https://linkedin.com/feed/update/{post.get('id', '')}",
-                                'relevance_score': self._calculate_financial_relevance(content)
-                            }
-
-                            if post_info['relevance_score'] > 0.1:
-                                posts.append(post_info)
-
-                    except Exception as e:
-                        logger.warning(f"Error parsing LinkedIn API post: {str(e)}")
-                        continue
-
-            logger.info(f"Scraped {len(posts)} posts from LinkedIn API")
-            return posts
+            # LinkedIn API has restrictions on public content access
+            # The UGC posts endpoint requires special permissions and may not work for general search
+            logger.warning("LinkedIn API access limited - using fallback scraping")
+            return self._scrape_linkedin_fallback(query, limit)
 
         except Exception as e:
             logger.error(f"Error with LinkedIn API: {str(e)}")
-            return []
+            return self._scrape_linkedin_fallback(query, limit)
 
     def _scrape_linkedin_fallback(self, query: str, limit: int = 30) -> List[Dict]:
         """Fallback LinkedIn scraping (very limited)"""
@@ -383,57 +326,30 @@ class SocialMediaScraper:
             return []
 
     def _scrape_facebook_api(self, query: str, limit: int, api_keys: Dict[str, str]) -> List[Dict]:
-        """Scrape Facebook using Graph API"""
+        """Scrape Facebook using Graph API - Limited to page posts"""
         posts = []
 
         try:
             access_token = api_keys.get('access_token')
             if not access_token:
-                logger.error("Facebook access token not found")
-                return []
+                logger.warning("Facebook access token not found - using fallback")
+                return self._scrape_facebook_fallback(query, limit)
 
-            # Facebook Graph API search endpoint
-            search_url = f"https://graph.facebook.com/v18.0/search"
-            params = {
-                'q': query,
-                'type': 'post',
-                'access_token': access_token,
-                'limit': min(limit, 100)  # API limit
-            }
-
-            response = self._make_request(search_url, params=params)
-            if not response:
-                return []
-
-            data = response.json()
-
-            if 'data' in data:
-                for post in data['data'][:limit]:
-                    try:
-                        post_info = {
-                            'platform': 'facebook',
-                            'title': post.get('message', '')[:100] + "..." if len(post.get('message', '')) > 100 else post.get('message', ''),
-                            'content': post.get('message', ''),
-                            'author': post.get('from', {}).get('name', 'Unknown'),
-                            'created_at': datetime.fromisoformat(post.get('created_time', '').replace('T', ' ').replace('+0000', '')) if post.get('created_time') else datetime.now(),
-                            'scraped_at': datetime.now(),
-                            'url': f"https://facebook.com/{post.get('id', '')}",
-                            'relevance_score': self._calculate_financial_relevance(post.get('message', ''))
-                        }
-
-                        if post_info['relevance_score'] > 0.1:
-                            posts.append(post_info)
-
-                    except Exception as e:
-                        logger.warning(f"Error parsing Facebook API post: {str(e)}")
-                        continue
-
-            logger.info(f"Scraped {len(posts)} posts from Facebook API")
-            return posts
+            # Facebook Graph API doesn't allow general post search without special permissions
+            # Instead, try to get posts from specific financial pages if page access token is available
+            page_token = api_keys.get('page_access_token')
+            if page_token:
+                # Try to get posts from a specific page (would need page ID)
+                # For now, fall back to scraping since general search isn't available
+                logger.warning("Facebook Graph API search not available - using fallback scraping")
+                return self._scrape_facebook_fallback(query, limit)
+            else:
+                logger.warning("Facebook page access token not available - using fallback scraping")
+                return self._scrape_facebook_fallback(query, limit)
 
         except Exception as e:
             logger.error(f"Error with Facebook API: {str(e)}")
-            return []
+            return self._scrape_facebook_fallback(query, limit)
 
     def _scrape_facebook_fallback(self, query: str, limit: int = 20) -> List[Dict]:
         """Fallback Facebook scraping (very limited)"""

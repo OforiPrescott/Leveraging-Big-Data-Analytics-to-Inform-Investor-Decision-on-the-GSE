@@ -20,17 +20,6 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler
 import xgboost as xgb
 import lightgbm as lgb
 from catboost import CatBoostClassifier
-
-# Deep Learning imports (optional - fallback to sklearn if not available)
-try:
-    import tensorflow as tf
-    from tensorflow.keras.models import Sequential
-    from tensorflow.keras.layers import LSTM, Dense, Dropout, Conv1D, MaxPooling1D, Flatten
-    from tensorflow.keras.optimizers import Adam
-    DEEP_LEARNING_AVAILABLE = True
-except ImportError:
-    DEEP_LEARNING_AVAILABLE = False
-    logger.warning("TensorFlow not available - deep learning models disabled")
 import matplotlib.pyplot as plt
 import seaborn as sns
 from datetime import datetime, timedelta
@@ -59,6 +48,18 @@ warnings.filterwarnings('ignore')
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+# Deep Learning imports (optional - fallback to sklearn if not available)
+try:
+    import tensorflow as tf
+    from tensorflow.keras.models import Sequential
+    from tensorflow.keras.layers import LSTM, Dense, Dropout, Conv1D, MaxPooling1D, Flatten
+    from tensorflow.keras.optimizers import Adam
+    DEEP_LEARNING_AVAILABLE = True
+    logger.info("TensorFlow available - deep learning models enabled")
+except ImportError:
+    DEEP_LEARNING_AVAILABLE = False
+    logger.warning("TensorFlow not available - deep learning models disabled")
 
 # Download required NLTK data
 try:

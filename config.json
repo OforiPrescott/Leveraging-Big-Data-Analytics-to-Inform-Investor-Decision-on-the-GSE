@@ -1,6 +1,6 @@
 {
   "database": {
-    "path": "c:\\Users\\user\\Desktop\\Leveraging Big Data Analytics to Inform Investor Decision on the GSE\\data\\gse_sentiment.db",
+    "path": "C:\\Users\\user\\Desktop\\Leveraging Big Data Analytics to Inform Investor Decision on the GSE\\data\\gse_sentiment.db",
     "backup_interval_hours": 24
   },
   "data_collection": {
@@ -43,7 +43,7 @@
   },
   "logging": {
     "level": "INFO",
-    "log_file": "c:\\Users\\user\\Desktop\\Leveraging Big Data Analytics to Inform Investor Decision on the GSE\\logs\\gse_system.log",
+    "log_file": "C:\\Users\\user\\Desktop\\Leveraging Big Data Analytics to Inform Investor Decision on the GSE\\logs\\gse_system.log",
     "max_log_size_mb": 10
   },
   "api_keys": {

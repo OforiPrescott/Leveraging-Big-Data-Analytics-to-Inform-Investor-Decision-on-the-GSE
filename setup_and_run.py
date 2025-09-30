@@ -47,10 +47,10 @@ class GSESystemSetup:
             subprocess.check_call([
                 sys.executable, "-m", "pip", "install", "-r", "requirements.txt"
             ])
-            logger.info("✅ Requirements installed successfully")
+            logger.info("[SUCCESS] Requirements installed successfully")
             return True
         except subprocess.CalledProcessError as e:
-            logger.error(f"❌ Error installing requirements: {e}")
+            logger.error(f"[ERROR] Error installing requirements: {e}")
             return False
     
     def setup_databases(self):
@@ -169,11 +169,11 @@ class GSESystemSetup:
             conn.commit()
             conn.close()
             
-            logger.info("✅ Database setup completed")
+            logger.info("[SUCCESS] Database setup completed")
             return True
             
         except Exception as e:
-            logger.error(f"❌ Error setting up databases: {e}")
+            logger.error(f"[ERROR] Error setting up databases: {e}")
             return False
     
     def load_gse_csv_data(self):
@@ -195,20 +195,20 @@ class GSESystemSetup:
                     df = self._process_gse_csv(file_path)
                     if df is not None:
                         loaded_files[file_type] = df
-                        logger.info(f"✅ Loaded {len(df)} records from {filename}")
+                        logger.info(f"[SUCCESS] Loaded {len(df)} records from {filename}")
                 else:
-                    logger.warning(f"⚠️  {filename} not found, creating sample data...")
+                    logger.warning(f"[WARNING]  {filename} not found, creating sample data...")
                     loaded_files[file_type] = self._create_sample_stock_data(file_type)
             
             # Save to database
             if loaded_files:
                 self._save_stock_data_to_db(loaded_files)
-                logger.info("✅ Stock data saved to database")
+                logger.info("[SUCCESS] Stock data saved to database")
             
             return True
             
         except Exception as e:
-            logger.error(f"❌ Error loading CSV data: {e}")
+            logger.error(f"[ERROR] Error loading CSV data: {e}")
             return False
     
     def _process_gse_csv(self, file_path: Path) -> pd.DataFrame:
@@ -316,7 +316,7 @@ class GSESystemSetup:
             })
         
         df = pd.DataFrame(data)
-        logger.info(f"✅ Created {len(df)} sample records for {data_type} data")
+        logger.info(f"[SUCCESS] Created {len(df)} sample records for {data_type} data")
         return df
     
     def _save_stock_data_to_db(self, loaded_files: dict):
@@ -451,12 +451,12 @@ class GSESystemSetup:
             
             # Save to database
             analyzer.save_sentiment_data(sentiment_entries)
-            logger.info(f"✅ Created {len(sentiment_entries)} sample sentiment entries")
+            logger.info(f"[SUCCESS] Created {len(sentiment_entries)} sample sentiment entries")
             
             return True
             
         except Exception as e:
-            logger.error(f"❌ Error creating sample sentiment data: {e}")
+            logger.error(f"[ERROR] Error creating sample sentiment data: {e}")
             return False
     
     def create_configuration_file(self):
@@ -543,13 +543,13 @@ class GSESystemSetup:
         # Merge existing API keys with defaults
         if existing_api_keys:
             default_config['api_keys'] = existing_api_keys
-            logger.info("✅ Preserved existing API keys in configuration")
+            logger.info("[SUCCESS] Preserved existing API keys in configuration")
 
         # Write the configuration
         with open(config_path, 'w') as f:
             json.dump(default_config, f, indent=2)
 
-        logger.info(f"✅ Configuration file created/updated at {config_path}")
+        logger.info(f"[SUCCESS] Configuration file created/updated at {config_path}")
         return True
     
     def run_initial_data_collection(self):
@@ -570,7 +570,7 @@ class GSESystemSetup:
                 articles = news_scraper.scrape_multiple_sources(term, max_articles_per_source=5)
                 if articles:
                     news_scraper.save_articles_to_db(articles, str(self.data_dir / "news_articles.db"))
-                    logger.info(f"✅ Collected {len(articles)} news articles for '{term}'")
+                    logger.info(f"[SUCCESS] Collected {len(articles)} news articles for '{term}'")
             
             # Social media scraping
             social_scraper = SocialMediaScraper()
@@ -579,12 +579,12 @@ class GSESystemSetup:
             social_posts = social_scraper.scrape_all_platforms(social_queries, max_posts_per_platform=10)
             if social_posts:
                 social_scraper.save_social_posts_to_db(social_posts, str(self.data_dir / "social_posts.db"))
-                logger.info(f"✅ Collected {len(social_posts)} social media posts")
+                logger.info(f"[SUCCESS] Collected {len(social_posts)} social media posts")
             
             return True
             
         except Exception as e:
-            logger.error(f"❌ Error in initial data collection: {e}")
+            logger.error(f"[ERROR] Error in initial data collection: {e}")
             return False
     
     def create_startup_scripts(self):
@@ -645,7 +645,7 @@ print('Data collection completed!')
                 with open(self.base_dir / script_name, 'w') as f:
                     f.write(f'@echo off\ncd /d "%~dp0"\n{command}\npause\n')
         
-        logger.info("✅ Startup scripts created")
+        logger.info("[SUCCESS] Startup scripts created")
         return True
     
     def run_complete_setup(self):
@@ -667,15 +667,15 @@ print('Data collection completed!')
         success_count = 0
         
         for step_name, step_function in steps:
-            logger.info(f"\n🔄 {step_name}...")
+            logger.info(f"\n[PROCESSING] {step_name}...")
             try:
                 if step_function():
-                    logger.info(f"✅ {step_name} completed successfully")
+                    logger.info(f"[SUCCESS] {step_name} completed successfully")
                     success_count += 1
                 else:
-                    logger.error(f"❌ {step_name} failed")
+                    logger.error(f"[FAILED] {step_name} failed")
             except Exception as e:
-                logger.error(f"❌ {step_name} failed with error: {e}")
+                logger.error(f"[ERROR] {step_name} failed with error: {e}")
         
         logger.info("\n" + "=" * 50)
         logger.info(f"SETUP COMPLETED: {success_count}/{len(steps)} steps successful")
@@ -685,7 +685,7 @@ print('Data collection completed!')
             logger.info("\n🎉 GSE Sentiment Analysis System setup completed successfully!")
             self._print_next_steps()
         else:
-            logger.warning(f"\n⚠️  Setup completed with {len(steps) - success_count} issues.")
+            logger.warning(f"\n[WARNING]  Setup completed with {len(steps) - success_count} issues.")
             logger.warning("Please check the logs and resolve any errors before proceeding.")
         
         return success_count == len(steps)
@@ -741,9 +741,9 @@ def main():
     success = setup.run_complete_setup()
     
     if success:
-        print("\n✅ Setup completed successfully!")
+        print("\n[SUCCESS] Setup completed successfully!")
     else:
-        print("\n❌ Setup completed with errors. Please check the logs.")
+        print("\n[ERROR] Setup completed with errors. Please check the logs.")
     
     return success
 
