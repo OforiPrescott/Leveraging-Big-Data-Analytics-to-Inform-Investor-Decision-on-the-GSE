@@ -2,6 +2,13 @@
 
 A comprehensive research platform for analyzing investor sentiment and predicting stock movements on the Ghana Stock Exchange (GSE) using advanced big data analytics, natural language processing, and machine learning techniques.
 
+## 🌐 Live Deployment
+
+**Access the GSE Sentiment Analysis System at:**
+**https://8gbpy8kder7stfdyuj72t7.streamlit.app/**
+
+*Real-time sentiment analysis and stock prediction platform for Ghanaian investors and researchers.*
+
 ## 📖 Table of Contents
 
 - [Overview](#-overview)
