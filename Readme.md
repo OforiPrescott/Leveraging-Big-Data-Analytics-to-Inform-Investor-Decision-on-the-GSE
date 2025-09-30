@@ -70,7 +70,7 @@ This system implements a **hybrid automated-manual sentiment analysis framework*
 ### 1. Initial Setup
 ```bash
 # Clone or navigate to project directory
-cd "Test Stock Analysis"
+cd "Leveraging Big Data Analytics to Inform Investor Decision on the GSE"
 
 # Install dependencies
 pip install -r requirements.txt
