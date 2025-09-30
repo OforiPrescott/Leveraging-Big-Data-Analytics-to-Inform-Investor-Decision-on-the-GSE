@@ -62,18 +62,61 @@ class SocialMediaScraper:
         }
         
     def _load_api_keys(self) -> Dict[str, Dict[str, str]]:
-        """Load API keys from config.json"""
+        """Load API keys from environment variables or config.json"""
+        api_keys = {}
+
+        # Try environment variables first (for deployment)
+        try:
+            # Facebook API keys
+            if os.getenv('FACEBOOK_APP_ID') and os.getenv('FACEBOOK_APP_SECRET'):
+                api_keys['facebook'] = {
+                    'app_id': os.getenv('FACEBOOK_APP_ID'),
+                    'app_secret': os.getenv('FACEBOOK_APP_SECRET'),
+                    'access_token': os.getenv('FACEBOOK_ACCESS_TOKEN', ''),
+                    'page_access_token': os.getenv('FACEBOOK_PAGE_ACCESS_TOKEN', '')
+                }
+
+            # LinkedIn API keys
+            if os.getenv('LINKEDIN_CLIENT_ID') and os.getenv('LINKEDIN_CLIENT_SECRET'):
+                api_keys['linkedin'] = {
+                    'client_id': os.getenv('LINKEDIN_CLIENT_ID'),
+                    'client_secret': os.getenv('LINKEDIN_CLIENT_SECRET'),
+                    'access_token': os.getenv('LINKEDIN_ACCESS_TOKEN', ''),
+                    'refresh_token': os.getenv('LINKEDIN_REFRESH_TOKEN', '')
+                }
+
+            # Twitter API keys
+            if os.getenv('TWITTER_API_KEY') and os.getenv('TWITTER_API_SECRET'):
+                api_keys['twitter'] = {
+                    'api_key': os.getenv('TWITTER_API_KEY'),
+                    'api_secret': os.getenv('TWITTER_API_SECRET'),
+                    'access_token': os.getenv('TWITTER_ACCESS_TOKEN', ''),
+                    'access_token_secret': os.getenv('TWITTER_ACCESS_TOKEN_SECRET', ''),
+                    'bearer_token': os.getenv('TWITTER_BEARER_TOKEN', '')
+                }
+
+            if api_keys:
+                logger.info(f"Loaded API keys from environment variables: {list(api_keys.keys())}")
+                return api_keys
+
+        except Exception as e:
+            logger.warning(f"Error loading environment API keys: {e}")
+
+        # Fallback to config.json (for local development)
         try:
             config_path = os.path.join(os.path.dirname(__file__), 'config.json')
             if os.path.exists(config_path):
                 with open(config_path, 'r') as f:
                     config = json.load(f)
-                return config.get('api_keys', {})
+                api_keys = config.get('api_keys', {})
+                if api_keys:
+                    logger.info(f"Loaded API keys from config.json: {list(api_keys.keys())}")
+                return api_keys
             else:
                 logger.warning("config.json not found, using empty API keys")
                 return {}
         except Exception as e:
-            logger.error(f"Error loading API keys: {e}")
+            logger.error(f"Error loading API keys from config.json: {e}")
             return {}
 
     def _validate_api_keys(self):
