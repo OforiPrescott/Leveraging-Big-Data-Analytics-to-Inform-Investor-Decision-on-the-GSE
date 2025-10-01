@@ -64,17 +64,145 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Comprehensive CSS for perfect light and dark mode compatibility
+/* ===== NUCLEAR OPTION: FORCE ALL TEXT WHITE IN DARK MODE ===== */
 st.markdown("""
 <style>
-    /* ===== RESET AND BASE STYLES ===== */
-    * {
-        box-sizing: border-box;
+    /* ===== ABSOLUTE DARK MODE OVERRIDE ===== */
+    @media (prefers-color-scheme: dark) {
+        /* FORCE EVERYTHING TO BE WHITE TEXT */
+        * {
+            color: #ffffff !important;
+        }
+
+        /* SPECIFIC OVERRIDES FOR MAXIMUM VISIBILITY */
+        .stMarkdown, .stText, p, h1, h2, h3, h4, h5, h6 {
+            color: #ffffff !important;
+            font-weight: 400 !important;
+        }
+
+        span, div, li, strong, em, b, i {
+            color: #ffffff !important;
+        }
+
+        /* HEADERS - BRIGHT WHITE */
+        h1, h2, h3, h4, h5, h6 {
+            color: #ffffff !important;
+            font-weight: 700 !important;
+        }
+
+        /* LINKS - BRIGHT BLUE */
+        a {
+            color: #60a5fa !important;
+            text-decoration: underline !important;
+            font-weight: 500 !important;
+        }
+
+        /* TABLES - WHITE TEXT ON DARK BACKGROUNDS */
+        .stDataFrame, .stTable {
+            background-color: #1f2937 !important;
+            border: 1px solid #374151 !important;
+        }
+        .stDataFrame td, .stTable td {
+            color: #ffffff !important;
+            background-color: transparent !important;
+        }
+        .stDataFrame th, .stTable th {
+            background-color: #374151 !important;
+            color: #ffffff !important;
+            font-weight: 700 !important;
+        }
+
+        /* METRICS - WHITE TEXT */
+        .stMetric {
+            background: rgba(31, 41, 55, 0.8) !important;
+        }
+        .stMetric label, .stMetric .metric-value {
+            color: #ffffff !important;
+        }
+
+        /* BUTTONS - WHITE TEXT */
+        .stButton > button {
+            color: #ffffff !important;
+        }
+
+        /* FORM ELEMENTS - WHITE TEXT */
+        .stSelectbox, .stTextInput, .stNumberInput, .stSlider {
+            color: #ffffff !important;
+        }
+
+        /* TABS - WHITE TEXT */
+        .stTabs [data-baseweb="tab"] {
+            color: #e5e7eb !important;
+        }
+        .stTabs [data-baseweb="tab"][aria-selected="true"] {
+            color: #ffffff !important;
+        }
+
+        /* CARDS - DARK BACKGROUNDS WITH WHITE TEXT */
+        .metric-card, .analysis-card, .academic-section, .research-metric,
+        .prediction-card, .correlation-highlight, .model-performance,
+        .legend-guide {
+            background: #1f2937 !important;
+            color: #ffffff !important;
+            border: 1px solid #374151 !important;
+        }
+
+        /* LEGEND GUIDE - SPECIFIC WHITE TEXT */
+        .legend-guide h4 {
+            color: #ffffff !important;
+            font-weight: 800 !important;
+        }
+        .legend-guide strong {
+            color: #60a5fa !important;
+            font-weight: 700 !important;
+        }
+        .legend-guide div, .legend-guide p, .legend-guide span {
+            color: #ffffff !important;
+            font-weight: 500 !important;
+        }
+
+        /* ALERTS AND MESSAGES - WHITE TEXT */
+        .stAlert, .stSuccess, .stInfo, .stWarning, .stError {
+            color: #ffffff !important;
+            background-color: #1f2937 !important;
+        }
+
+        /* CODE BLOCKS - LIGHT TEXT ON DARK */
+        code, pre {
+            background-color: #374151 !important;
+            color: #e5e7eb !important;
+        }
+
+        /* EXPANDERS - WHITE TEXT */
+        .streamlit-expanderHeader {
+            color: #ffffff !important;
+        }
+
+        /* RADIO AND CHECKBOXES - WHITE TEXT */
+        .stRadio label, .stCheckbox label {
+            color: #ffffff !important;
+        }
+
+        /* PROGRESS BARS - BLUE */
+        .stProgress .stProgress-bar {
+            background-color: #3b82f6 !important;
+        }
+
+        /* BLOCKQUOTES - LIGHT TEXT */
+        blockquote {
+            background-color: #374151 !important;
+            color: #e5e7eb !important;
+        }
+
+        /* MAIN HEADER - WHITE TEXT */
+        .main-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%) !important;
+            color: #ffffff !important;
+        }
     }
 
-    /* ===== LIGHT MODE STYLES ===== */
+    /* ===== LIGHT MODE PRESERVED ===== */
     @media (prefers-color-scheme: light) {
-        /* Base text colors for light mode */
         .stMarkdown, .stText, p, h1, h2, h3, h4, h5, h6, span, div, li, strong, em, b, i {
             color: #1f2937 !important;
         }
@@ -141,7 +269,6 @@ st.markdown("""
             color: #374151;
         }
 
-        /* Light mode specific elements */
         .stDataFrame, .stTable {
             background-color: white !important;
             border: 1px solid #e5e7eb !important;
@@ -152,189 +279,6 @@ st.markdown("""
         .stDataFrame th, .stTable th {
             background-color: #f9fafb !important;
             color: #1f2937 !important;
-        }
-    }
-
-    /* ===== DARK MODE STYLES ===== */
-    @media (prefers-color-scheme: dark) {
-        /* Universal dark mode text override */
-        .stMarkdown, .stText, p, h1, h2, h3, h4, h5, h6, span, div, li, strong, em, b, i,
-        .stMarkdown p, .stMarkdown span, .stMarkdown div,
-        .stAlert, .stSuccess, .stInfo, .stWarning, .stError,
-        .stRadio label, .stCheckbox label,
-        .streamlit-expanderHeader {
-            color: #f9fafb !important;
-        }
-
-        /* Headers with maximum contrast */
-        h1, h2, h3, h4, h5, h6 {
-            color: #ffffff !important;
-            font-weight: 600 !important;
-        }
-
-        /* Strong text */
-        strong, b {
-            color: #ffffff !important;
-            font-weight: 700 !important;
-        }
-
-        /* Links - highly visible in dark mode */
-        a {
-            color: #60a5fa !important;
-            font-weight: 500 !important;
-            text-decoration: underline !important;
-        }
-        a:hover {
-            color: #93c5fd !important;
-            text-decoration: none !important;
-        }
-        a:visited {
-            color: #a78bfa !important;
-        }
-
-        .main-header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%);
-            color: white;
-        }
-
-        .metric-card {
-            background: #1f2937;
-            color: #f9fafb;
-            border-left: 5px solid #3b82f6;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .analysis-card {
-            background: #111827;
-            color: #f9fafb;
-            border: 1px solid #374151;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .academic-section {
-            background: #111827;
-            color: #f9fafb;
-            border-left: 5px solid #3b82f6;
-        }
-
-        .research-metric {
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d4a77 100%);
-            color: #f9fafb;
-            border: 1px solid #3b82f6;
-        }
-
-        .prediction-card {
-            background: #1f2937;
-            color: #f9fafb;
-            border: 2px solid #374151;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .correlation-highlight {
-            background: linear-gradient(135deg, #451a03 0%, #78350f 100%);
-            color: #f9fafb;
-            border-left: 5px solid #f59e0b;
-        }
-
-        .model-performance {
-            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
-            color: #f9fafb;
-            border: 1px solid #10b981;
-        }
-
-        /* PERFECTLY READABLE LEGEND GUIDE IN DARK MODE - ALL WHITE TEXT */
-        .legend-guide {
-            background: #1f2937 !important;
-            border: 2px solid #3b82f6 !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-            border-radius: 12px !important;
-        }
-        .legend-guide h4 {
-            color: #ffffff !important;
-            font-weight: 700 !important;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
-            margin: 0 0 10px 0 !important;
-        }
-        .legend-guide strong {
-            color: #60a5fa !important;
-            font-weight: 600 !important;
-        }
-        .legend-guide div, .legend-guide p, .legend-guide span {
-            color: #f9fafb !important;
-            font-weight: 500 !important;
-            line-height: 1.5 !important;
-        }
-
-        /* DataFrames and Tables */
-        .stDataFrame, .stTable {
-            background-color: #1f2937 !important;
-            border: 1px solid #374151 !important;
-        }
-        .stDataFrame td, .stTable td {
-            color: #e5e7eb !important;
-            background-color: transparent !important;
-        }
-        .stDataFrame th, .stTable th {
-            background-color: #374151 !important;
-            color: #ffffff !important;
-            font-weight: 600 !important;
-        }
-
-        /* Metrics */
-        .stMetric label {
-            color: #d1d5db !important;
-        }
-        .stMetric .metric-value {
-            color: #ffffff !important;
-        }
-        .stMetric .metric-delta.positive {
-            color: #10b981 !important;
-        }
-        .stMetric .metric-delta.negative {
-            color: #ef4444 !important;
-        }
-
-        /* Buttons */
-        .stButton > button {
-            color: #ffffff !important;
-        }
-
-        /* Form elements */
-        .stSelectbox, .stTextInput, .stNumberInput {
-            color: #f9fafb !important;
-        }
-
-        /* Tabs */
-        .stTabs [data-baseweb="tab"] {
-            color: #e5e7eb !important;
-        }
-        .stTabs [data-baseweb="tab"][aria-selected="true"] {
-            color: #ffffff !important;
-        }
-
-        /* Progress bars */
-        .stProgress .stProgress-bar {
-            background-color: #3b82f6 !important;
-        }
-
-        /* Code blocks */
-        code, pre {
-            background-color: #374151 !important;
-            color: #e5e7eb !important;
-            border: 1px solid #4b5563 !important;
-        }
-
-        /* Blockquotes */
-        blockquote {
-            background-color: #374151 !important;
-            color: #d1d5db !important;
-            border-left: 4px solid #3b82f6 !important;
-        }
-
-        /* All card content text */
-        .metric-card *, .analysis-card *, .research-metric *, .prediction-card *,
-        .correlation-highlight *, .model-performance *, .academic-section * {
-            color: inherit !important;
         }
     }
 
