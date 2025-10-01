@@ -256,6 +256,18 @@ st.markdown("""
             color: #f9fafb !important;
         }
 
+        /* Lighter background for legend/guide in dark mode */
+        .legend-guide {
+            background: linear-gradient(135deg, #2d3748 0%, #374151 100%) !important;
+            border: 1px solid #4b5563 !important;
+        }
+        .legend-guide h4 {
+            color: #ffffff !important;
+        }
+        .legend-guide strong {
+            color: #60a5fa !important;
+        }
+
         /* Ensure all nested text in cards is visible */
         .metric-card *, .analysis-card *, .research-metric *, .prediction-card *,
         .correlation-highlight *, .model-performance *, .academic-section * {
@@ -1234,7 +1246,7 @@ with tabs[1]:
 
     # Color and Icon Legend
     st.markdown("""
-    <div style='background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%); padding: 15px; border-radius: 10px; margin: 10px 0; border: 1px solid #e2e8f0;'>
+    <div class='legend-guide' style='background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%); padding: 15px; border-radius: 10px; margin: 10px 0; border: 1px solid #e2e8f0;'>
     <h4 style='margin: 0 0 10px 0; color: #1f2937;'>📋 Table Legend & Interpretation Guide</h4>
     <div style='display: flex; flex-wrap: wrap; gap: 15px; font-size: 14px;'>
         <div><strong>🟢 Green:</strong> Positive/Bullish/High Appeal</div>
