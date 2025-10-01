@@ -117,20 +117,24 @@ class GSESentimentAnalyzer:
             logger.error(f"Error loading GSE data: {str(e)} - using synthetic data")
 
     def _load_gse_companies(self) -> List[Dict]:
-        """Load GSE company information"""
-        # This would be loaded from your GSE_Company_List_and_Keywords.xlsx file
-        # For now, using major GSE companies
+        """Load GSE company information - Updated to include all 16 major GSE companies"""
         return [
             {'symbol': 'MTN', 'name': 'MTN Ghana', 'keywords': ['MTN', 'mobile', 'telecom', 'Ghana']},
-            {'symbol': 'GCB', 'name': 'GCB Bank', 'keywords': ['GCB', 'bank', 'banking', 'financial']},
+            {'symbol': 'TULLOW', 'name': 'Tullow Oil', 'keywords': ['Tullow', 'oil', 'energy', 'petroleum']},
             {'symbol': 'EGH', 'name': 'Ecobank Ghana', 'keywords': ['Ecobank', 'bank', 'banking']},
-            {'symbol': 'TOTAL', 'name': 'TotalEnergies', 'keywords': ['Total', 'TotalEnergies', 'oil', 'energy']},
-            {'symbol': 'FML', 'name': 'Fan Milk Limited', 'keywords': ['Fan Milk', 'dairy', 'food']},
+            {'symbol': 'GCB', 'name': 'GCB Bank', 'keywords': ['GCB', 'bank', 'banking', 'financial']},
             {'symbol': 'SCB', 'name': 'Standard Chartered Bank Ghana', 'keywords': ['Standard Chartered', 'bank']},
             {'symbol': 'CAL', 'name': 'CAL Bank', 'keywords': ['CAL Bank', 'banking']},
             {'symbol': 'ACCESS', 'name': 'Access Bank Ghana', 'keywords': ['Access Bank', 'banking']},
+            {'symbol': 'FML', 'name': 'Fan Milk Limited', 'keywords': ['Fan Milk', 'dairy', 'food']},
+            {'symbol': 'TOTAL', 'name': 'TotalEnergies Marketing Ghana', 'keywords': ['Total', 'TotalEnergies', 'oil', 'energy']},
+            {'symbol': 'GOIL', 'name': 'Ghana Oil Company', 'keywords': ['GOIL', 'oil', 'petroleum']},
             {'symbol': 'AGA', 'name': 'AngloGold Ashanti', 'keywords': ['AngloGold', 'Ashanti', 'gold', 'mining']},
-            {'symbol': 'GOIL', 'name': 'Ghana Oil Company', 'keywords': ['GOIL', 'oil', 'petroleum']}
+            {'symbol': 'UNIL', 'name': 'Unilever Ghana', 'keywords': ['Unilever', 'consumer', 'goods']},
+            {'symbol': 'PZ', 'name': 'PZ Cussons Ghana', 'keywords': ['PZ Cussons', 'consumer', 'goods']},
+            {'symbol': 'BOPP', 'name': 'Benso Oil Palm Plantation', 'keywords': ['Benso', 'oil palm', 'agriculture']},
+            {'symbol': 'SIC', 'name': 'SIC Insurance Company', 'keywords': ['SIC', 'insurance', 'financial']},
+            {'symbol': 'ETI', 'name': 'Enterprise Group', 'keywords': ['Enterprise', 'group', 'diversified']}
         ]
     
     def _get_news_sources(self) -> List[Dict]:
@@ -2550,7 +2554,7 @@ if __name__ == "__main__":
             print(f"Content: {data.content[:100]}...")
     
     print("\n2. Training prediction models...")
-    for company in analyzer.companies[:3]:  # Train for first 3 companies
+    for company in analyzer.companies:  # Train for all 16 companies
         try:
             results = analyzer.train_prediction_models(company['symbol'])
             if results:
@@ -2559,9 +2563,9 @@ if __name__ == "__main__":
                     print(f"  {model_name}: {model_info['accuracy']:.3f} accuracy")
         except Exception as e:
             print(f"Error training models for {company['symbol']}: {str(e)}")
-    
+
     print("\n3. Making predictions...")
-    for company in analyzer.companies[:3]:
+    for company in analyzer.companies:
         prediction = analyzer.predict_stock_movement(company['symbol'])
         if 'error' not in prediction:
             print(f"{company['symbol']}: {prediction['prediction']} "

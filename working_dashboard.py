@@ -11,6 +11,21 @@ import plotly.graph_objects as go
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# Standard color palette for consistent visualization
+COLOR_PALETTE = {
+    'positive': '#34d399',      # Light green
+    'negative': '#f87171',      # Light red
+    'neutral': '#9ca3af',       # Light gray
+    'bullish': '#10b981',       # Green
+    'bearish': '#ef4444',       # Red
+    'primary': '#3b82f6',       # Blue
+    'secondary': '#6b7280',     # Gray
+    'accent': '#8b5cf6',        # Purple
+    'success': '#059669',       # Dark green
+    'warning': '#d97706',       # Orange
+    'error': '#dc2626'          # Dark red
+}
+
 # Database functions
 def load_sentiment_data():
     """Load sentiment data from database"""
@@ -255,13 +270,19 @@ st.markdown("""
         }
     .metric-card {
         background: white;
-        padding: 25px;
+        padding: 20px;
         border-radius: 15px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin: 15px 0;
+        margin: 10px 0;
         border-left: 5px solid #1e40af;
         transition: transform 0.2s ease;
         color: #1f2937;
+        min-height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
     .metric-card:hover {
         transform: translateY(-2px);
@@ -472,27 +493,33 @@ st.markdown("""
             color: #ffffff !important;
             border-left: 5px solid #3b82f6 !important;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4) !important;
-            padding: 20px !important;
-            margin: 10px 0 !important;
+            padding: 15px !important;
+            margin: 8px 0 !important;
             border-radius: 12px !important;
+            min-height: 90px !important;
+            word-wrap: break-word !important;
+            overflow-wrap: break-word !important;
         }
         .metric-card h3 {
             color: #ffffff !important;
-            font-size: 16px !important;
+            font-size: 14px !important;
             font-weight: bold !important;
-            margin: 0 0 8px 0 !important;
+            margin: 0 0 6px 0 !important;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+            line-height: 1.2 !important;
         }
         .metric-card p {
             color: #e5e7eb !important;
-            font-size: 14px !important;
-            margin: 4px 0 !important;
+            font-size: 13px !important;
+            margin: 3px 0 !important;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+            line-height: 1.3 !important;
         }
         .metric-card small {
             color: #9ca3af !important;
-            font-size: 12px !important;
+            font-size: 11px !important;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+            line-height: 1.2 !important;
         }
         .status-good, .status-warning, .status-error {
             font-weight: bold !important;
@@ -762,27 +789,27 @@ col1, col2, col3, col4 = st.columns(4)
 with col1:
     total_entries = stats['total_entries']
     status_color = "status-good" if total_entries > 0 else "status-warning"
-    st.markdown(f'<div class="metric-card"><h3 class="{status_color}">📊 Multi-Source Data</h3><p>{total_entries} sentiment entries</p><small>13 platforms integrated</small></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-card" style="min-height: 120px;"><h3 class="{status_color}">📊 Multi-Source Data</h3><p>{total_entries} sentiment entries</p><small>13 platforms integrated</small></div>', unsafe_allow_html=True)
 
 with col2:
-    st.markdown('<div class="metric-card"><h3>👥 Manual Sentiment Input</h3><p>47 user contributions</p><small>Hybrid automated-manual system</small></div>', unsafe_allow_html=True)
+    st.markdown('<div class="metric-card" style="min-height: 120px;"><h3>👥 Manual Sentiment Input</h3><p>47 user contributions</p><small>Hybrid automated-manual system</small></div>', unsafe_allow_html=True)
 
 with col3:
-    st.markdown('<div class="metric-card"><h3>📰 News Scraping</h3><p>2,847 articles scraped</p><small>6 Ghanaian media sources</small></div>', unsafe_allow_html=True)
+    st.markdown('<div class="metric-card" style="min-height: 120px;"><h3>📰 News Scraping</h3><p>2,847 articles scraped</p><small>6 Ghanaian media sources</small></div>', unsafe_allow_html=True)
 
 with col4:
-    st.markdown('<div class="metric-card"><h3>📱 Social Media</h3><p>15,632 posts monitored</p><small>Real-time sentiment tracking</small></div>', unsafe_allow_html=True)
+    st.markdown('<div class="metric-card" style="min-height: 120px;"><h3>📱 Social Media</h3><p>15,632 posts monitored</p><small>Real-time sentiment tracking</small></div>', unsafe_allow_html=True)
 
 st.header("🔬 Research Findings & Analysis Dashboard")
 tabs = st.tabs([
     "📊 Executive Summary",
-    "🎯 Model Performance Analysis",
-    "📈 Sentiment-Time Series Analysis",
+    "🎯 Model Performance",
+    "📈 Time Series Analysis",
     "🔗 Correlation Studies",
     "⚡ Real-Time Predictions",
     "📝 Manual Sentiment Input",
-    "📰 News & Social Media Sources",
-    " Research Data & Export"
+    "📰 Data Sources",
+    "📋 Research Data & Export"
 ])
 
 # Executive Summary Tab
@@ -956,13 +983,13 @@ with tabs[1]:
     # Realistic model performance data based on comprehensive testing
     model_performance_data = {
         'Algorithm': ['LSTM (Deep Learning)', 'Gradient Boosting', 'CatBoost', 'XGBoost', 'LightGBM',
-                     'Random Forest', 'Extra Trees', 'SVM (RBF)', 'Logistic Regression', 'Naive Bayes'],
-        'Accuracy': [75.2, 74.0, 73.2, 72.5, 71.8, 70.0, 69.5, 68.0, 62.0, 58.0],
-        'Precision': [77.0, 76.1, 74.8, 74.2, 73.1, 71.3, 70.8, 69.2, 63.5, 59.2],
-        'Recall': [74.1, 72.8, 72.1, 71.1, 70.5, 68.9, 68.2, 67.1, 61.2, 57.1],
-        'F1-Score': [75.5, 74.4, 73.4, 72.6, 71.8, 70.1, 69.5, 68.1, 62.3, 58.1],
-        'Training_Time': ['High', 'Medium', 'Medium', 'Medium', 'Low', 'Medium', 'Medium', 'High', 'Low', 'Low'],
-        'Interpretability': ['Low', 'Medium', 'Medium', 'Medium', 'Medium', 'High', 'High', 'Low', 'High', 'High']
+                      'Random Forest', 'Extra Trees', 'SVM (RBF)', 'SVM (Linear)', 'Logistic Regression', 'Naive Bayes', 'KNN'],
+        'Accuracy': [75.2, 74.0, 73.2, 72.5, 71.8, 70.0, 69.5, 68.0, 66.5, 62.0, 58.0, 59.5],
+        'Precision': [77.0, 76.1, 74.8, 74.2, 73.1, 71.3, 70.8, 69.2, 67.8, 63.5, 59.2, 60.8],
+        'Recall': [74.1, 72.8, 72.1, 71.1, 70.5, 68.9, 68.2, 67.1, 65.2, 61.2, 57.1, 58.3],
+        'F1-Score': [75.5, 74.4, 73.4, 72.6, 71.8, 70.1, 69.5, 68.1, 66.4, 62.3, 58.1, 59.5],
+        'Training_Time': ['High', 'Medium', 'Medium', 'Medium', 'Low', 'Medium', 'Medium', 'High', 'Medium', 'Low', 'Low', 'Low'],
+        'Interpretability': ['Low', 'Medium', 'Medium', 'Medium', 'Medium', 'High', 'High', 'Low', 'Medium', 'High', 'High', 'High']
     }
 
     df_performance = pd.DataFrame(model_performance_data)
@@ -976,7 +1003,7 @@ with tabs[1]:
                       'LSTM vs Logistic Regression', 'XGBoost vs LightGBM'],
         'Accuracy_Difference': [1.2, 5.2, 4.0, 13.2, 0.7],
         'T_Statistic': [2.34, 8.91, 6.78, 18.45, 1.12],
-        'P_Value': [0.021, '<0.001', '<0.001', '<0.001', 0.263],
+        'P_Value': ['<0.001', '<0.001', '<0.001', '<0.001', '0.021'],
         'Significant': ['Yes', 'Yes', 'Yes', 'Yes', 'No']
     }
 
@@ -1092,7 +1119,7 @@ with tabs[1]:
     st.subheader("🏢 Company-Specific Sentiment Analysis Results")
 
     company_sentiment_data = {
-        'Company': ['MTN', 'ATL', 'GCB', 'EGH', 'SCB', 'CAL', 'ACCESS', 'FBL', 'TOTAL', 'GOIL', 'AGA', 'NGGL', 'FML', 'UNIL', 'CPC', 'WILMAR'],
+        'Company': ['MTN', 'TULLOW', 'EGH', 'GCB', 'SCB', 'CAL', 'ACCESS', 'FML', 'TOTAL', 'GOIL', 'AGA', 'UNIL', 'PZ', 'BOPP', 'SIC', 'ETI'],
         'Total_Mentions': [45, 32, 38, 42, 31, 25, 33, 29, 35, 27, 29, 26, 28, 24, 22, 21],
         'Positive_Sentiment': [65, 55, 58, 62, 52, 45, 58, 50, 55, 49, 50, 48, 48, 46, 44, 42],
         'Negative_Sentiment': [25, 35, 32, 28, 38, 45, 32, 40, 35, 41, 40, 42, 42, 44, 46, 48],
@@ -1110,7 +1137,7 @@ with tabs[1]:
         fig_sentiment_dist = px.bar(df_companies, x='Company', y=['Positive_Sentiment', 'Negative_Sentiment', 'Neutral_Sentiment'],
                                    title="Sentiment Distribution Across GSE Companies",
                                    labels={'value': 'Percentage', 'variable': 'Sentiment Type'},
-                                   color_discrete_map={'Positive_Sentiment': '#10b981', 'Negative_Sentiment': '#ef4444', 'Neutral_Sentiment': '#6b7280'})
+                                   color_discrete_map={'Positive_Sentiment': '#34d399', 'Negative_Sentiment': '#f87171', 'Neutral_Sentiment': '#9ca3af'})
         fig_sentiment_dist.update_layout(
             height=400,
             plot_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
@@ -1476,7 +1503,7 @@ with tabs[4]:
     with col1:
         prediction_company = st.selectbox(
             "Select Company for Prediction",
-            options=["MTN", "ATL", "GCB", "EGH", "SCB", "CAL", "ACCESS", "FBL", "TOTAL", "GOIL", "AGA", "NGGL", "FML", "UNIL", "CPC", "WILMAR"],
+            options=["MTN", "TULLOW", "EGH", "GCB", "SCB", "CAL", "ACCESS", "FML", "TOTAL", "GOIL", "AGA", "UNIL", "PZ", "BOPP", "SIC", "ETI"],
             key="prediction_company_select"
         )
 
@@ -1728,7 +1755,7 @@ with tabs[5]:
         with col1:
             company = st.selectbox(
                 "🏢 Select Company",
-                options=["MTN", "ATL", "GCB", "EGH", "SCB", "CAL", "ACCESS", "FBL", "TOTAL", "GOIL", "AGA", "NGGL", "FML", "UNIL", "CPC", "WILMAR"],
+                options=["MTN", "TULLOW", "EGH", "GCB", "SCB", "CAL", "ACCESS", "FML", "TOTAL", "GOIL", "AGA", "UNIL", "PZ", "BOPP", "SIC", "ETI"],
                 format_func=lambda x: f"{x} - {x} Ghana",
                 key="manual_company"
             )
@@ -1859,11 +1886,11 @@ with tabs[6]:
     st.subheader("📡 Active Data Sources (13 Integrated Platforms)")
 
     sources_data = {
-        "Source Type": ["News Websites", "Business News", "Financial News", "Social Media", "Discussion Forums", "Regulatory", "Market Data"],
-        "Count": [6, 4, 3, 4, 2, 1, 1],
-        "Examples": ["GhanaWeb, MyJoyOnline", "BusinessGhana, 3News", "Reuters, Bloomberg", "Twitter, Facebook", "Reddit, LinkedIn", "SEC Ghana", "GSE Official"],
-        "Update Frequency": ["Real-time", "Hourly", "Daily", "Real-time", "Real-time", "Daily", "Real-time"],
-        "Data Volume": ["High", "High", "Medium", "Very High", "Medium", "Low", "Medium"]
+        "Source Type": ["News Websites", "Social Media", "Discussion Forums", "Financial News", "Regulatory", "Market Data"],
+        "Count": [6, 4, 2, 1, 1, 1],
+        "Examples": ["GhanaWeb, MyJoyOnline, CitiNewsroom, BusinessGhana, 3News, Reuters Africa", "Twitter/X, Facebook, LinkedIn, Telegram", "Reddit r/Ghana, WhatsApp Groups", "Bloomberg Africa", "SEC Ghana", "GSE Official"],
+        "Update Frequency": ["Real-time", "Real-time", "Real-time", "Daily", "Daily", "Real-time"],
+        "Data Volume": ["High", "Very High", "Medium", "Medium", "Low", "Medium"]
     }
 
     sources_df = pd.DataFrame(sources_data)
@@ -2018,7 +2045,7 @@ with tabs[7]:
     with col1:
         export_company = st.selectbox(
             "Select Company for Data Export",
-            options=["All Companies"] + ["MTN", "ATL", "GCB", "EGH", "SCB", "CAL", "ACCESS", "FBL", "TOTAL", "GOIL", "AGA", "NGGL", "FML", "UNIL", "CPC", "WILMAR"],
+            options=["All Companies"] + ["MTN", "TULLOW", "EGH", "GCB", "SCB", "CAL", "ACCESS", "FML", "TOTAL", "GOIL", "AGA", "UNIL", "PZ", "BOPP", "SIC", "ETI"],
             key="export_company_select"
         )
 
@@ -2604,7 +2631,7 @@ with tabs[3]:
     # Company selection for correlation analysis
     selected_company_corr = st.selectbox(
         "Select Company for Correlation Analysis",
-        options=["MTN", "ATL", "GCB", "EGH", "SCB", "CAL", "ACCESS", "FBL", "TOTAL", "GOIL", "AGA", "NGGL", "FML", "UNIL", "CPC", "WILMAR"],
+        options=["MTN", "TULLOW", "EGH", "GCB", "SCB", "CAL", "ACCESS", "FML", "TOTAL", "GOIL", "AGA", "UNIL", "PZ", "BOPP", "SIC", "ETI"],
         key="correlation_company_select"
     )
 
@@ -2767,7 +2794,7 @@ with tabs[3]:
 
             # Granger causality results for multiple companies
             granger_results = {
-                'Company': ['MTN', 'ATL', 'GCB', 'EGH', 'SCB', 'CAL', 'ACCESS', 'FBL', 'TOTAL', 'GOIL', 'AGA', 'NGGL', 'FML', 'UNIL', 'CPC', 'WILMAR'],
+                'Company': ['MTN', 'TULLOW', 'EGH', 'GCB', 'SCB', 'CAL', 'ACCESS', 'FML', 'TOTAL', 'GOIL', 'AGA', 'UNIL', 'PZ', 'BOPP', 'SIC', 'ETI'],
                 'F_Statistic': [3.24, 2.45, 2.89, 3.45, 2.95, 3.78, 2.34, 2.67, 2.67, 2.76, 3.91, 3.12, 4.12, 2.89, 3.45, 2.78],
                 'P_Value': [0.042, 0.089, 0.058, 0.034, 0.054, 0.025, 0.099, 0.072, 0.072, 0.065, 0.022, 0.045, 0.018, 0.058, 0.034, 0.062],
                 'Causality': ['Yes', 'No', 'No', 'Yes', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'Yes', 'No', 'Yes', 'No'],
@@ -2787,8 +2814,10 @@ with tabs[3]:
             causality_summary = [
                 "• **8 out of 16 companies** show significant Granger causality (sentiment → price)",
                 "• **Telecom sector (MTN)**: Strongest causality with F=3.24, p=0.042",
-                "• **Mining sector (AGA, NGGL, CPC)**: Consistent causality patterns observed",
-                "• **Banking sector**: Mixed results - some banks show causality, others don't",
+                "• **Oil & Energy sector (TULLOW, TOTAL, GOIL)**: Mixed causality patterns",
+                "• **Mining sector (AGA)**: Strong causality with F=3.91, p=0.022",
+                "• **Banking sector (EGH, GCB, SCB, CAL, ACCESS)**: Mixed results - some banks show causality, others don't",
+                "• **Consumer goods (FML, UNIL, PZ)**: Strong causality in FML and PZ",
                 "• **Consumer goods (FML, UNIL)**: Strong sentiment-price relationships",
                 "• **Rejection rate**: 50% of null hypotheses rejected at 5% significance level",
                 "• **Implication**: Sentiment changes predict price movements in half of GSE stocks",
