@@ -114,19 +114,152 @@ st.markdown("""
             color: #f9fafb;
             border: 1px solid #10b981;
         }
-        /* Ensure text visibility in dark mode */
-        .stMarkdown, .stText, p, h1, h2, h3, h4, h5, h6 {
+        /* Enhanced text visibility in dark mode */
+        .stMarkdown, .stText, p, h1, h2, h3, h4, h5, h6, span, div, li, strong, em, b, i {
             color: #f9fafb !important;
         }
+
+        /* Specific text elements */
+        .stMarkdown p, .stMarkdown span, .stMarkdown div {
+            color: #f9fafb !important;
+        }
+
+        /* Headers with better contrast */
+        h1, h2, h3, h4, h5, h6 {
+            color: #ffffff !important;
+            font-weight: 600 !important;
+        }
+
+        /* List items and bullet points */
+        li, ul li, ol li {
+            color: #e5e7eb !important;
+        }
+
+        /* Strong and emphasized text */
+        strong, b {
+            color: #ffffff !important;
+            font-weight: 700 !important;
+        }
+
+        /* Links in dark mode */
+        a {
+            color: #3b82f6 !important;
+        }
+        a:hover {
+            color: #60a5fa !important;
+        }
+
+        /* Code blocks and inline code */
+        code, pre {
+            background-color: #374151 !important;
+            color: #e5e7eb !important;
+            border: 1px solid #4b5563 !important;
+        }
+
+        /* Blockquotes */
+        blockquote {
+            background-color: #374151 !important;
+            color: #d1d5db !important;
+            border-left: 4px solid #3b82f6 !important;
+        }
+
+        /* Table text visibility */
         .stDataFrame, .stTable {
             background-color: #1f2937 !important;
         }
         .stDataFrame td, .stTable td {
-            color: #f9fafb !important;
+            color: #e5e7eb !important;
+            background-color: transparent !important;
         }
         .stDataFrame th, .stTable th {
             background-color: #374151 !important;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+        }
+
+        /* Metric text */
+        .stMetric label {
+            color: #9ca3af !important;
+        }
+        .stMetric .metric-value {
+            color: #ffffff !important;
+        }
+        .stMetric .metric-delta {
+            color: #10b981 !important;
+        }
+        .stMetric .metric-delta.negative {
+            color: #ef4444 !important;
+        }
+
+        /* Button text */
+        .stButton > button {
+            color: #ffffff !important;
+        }
+
+        /* Selectbox and input text */
+        .stSelectbox, .stTextInput, .stNumberInput {
             color: #f9fafb !important;
+        }
+
+        /* Expander text */
+        .streamlit-expanderHeader {
+            color: #f9fafb !important;
+        }
+
+        /* Tab text */
+        .stTabs [data-baseweb="tab"] {
+            color: #e5e7eb !important;
+        }
+        .stTabs [data-baseweb="tab"][aria-selected="true"] {
+            color: #ffffff !important;
+        }
+
+        /* Additional text elements for comprehensive coverage */
+        .stAlert, .stSuccess, .stInfo, .stWarning, .stError {
+            color: #f9fafb !important;
+        }
+
+        /* Progress bars and sliders */
+        .stProgress .stProgress-bar {
+            background-color: #3b82f6 !important;
+        }
+
+        /* Radio buttons and checkboxes */
+        .stRadio label, .stCheckbox label {
+            color: #e5e7eb !important;
+        }
+
+        /* Dataframe index and column headers */
+        .stDataFrame .index_name, .stTable .index_name {
+            color: #9ca3af !important;
+        }
+
+        /* Empty state messages */
+        .stEmpty {
+            color: #9ca3af !important;
+        }
+
+        /* Custom card content */
+        .metric-card p, .metric-card h3, .metric-card small,
+        .analysis-card p, .analysis-card h3, .analysis-card small,
+        .research-metric p, .research-metric h3, .research-metric small,
+        .prediction-card p, .prediction-card h3, .prediction-card small,
+        .correlation-highlight p, .correlation-highlight h3, .correlation-highlight small,
+        .model-performance p, .model-performance h3, .model-performance small,
+        .academic-section p, .academic-section h3, .academic-section small {
+            color: #f9fafb !important;
+        }
+
+        /* Legend/guide text */
+        .metric-card, .analysis-card, .research-metric, .prediction-card,
+        .correlation-highlight, .model-performance, .academic-section {
+            color: #f9fafb !important;
+        }
+
+        /* Ensure all nested text in cards is visible */
+        .metric-card *, .analysis-card *, .research-metric *, .prediction-card *,
+        .correlation-highlight *, .model-performance *, .academic-section * {
+            color: inherit !important;
         }
     }
 
