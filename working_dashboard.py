@@ -60,7 +60,6 @@ def get_sentiment_stats():
 # Page config
 st.set_page_config(
     page_title="GSE AI Analytics - Academic Research",
-    page_icon="🚀",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -215,68 +214,224 @@ st.markdown("""
     }
     .stTabs [data-baseweb="tab"] {
         background-color: transparent;
-        border-radius: 8px;
+        border-radius: 12px;
         padding: 12px 24px;
         font-weight: 600;
-        transition: all 0.2s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
     }
     .stTabs [data-baseweb="tab"]:hover {
         background-color: rgba(59, 130, 246, 0.1);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+    }
+    .stTabs [data-baseweb="tab"]:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+    }
+    .stTabs [data-baseweb="tab"]:hover:before {
+        left: 100%;
     }
     .stTabs [data-baseweb="tab"][aria-selected="true"] {
-        background-color: #3b82f6;
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
         color: white;
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        transform: translateY(-1px);
     }
 
     /* DataFrame and table styling */
     .stDataFrame {
-        border-radius: 12px;
+        border-radius: 16px;
         overflow: hidden;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+        transition: all 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    .stDataFrame:hover {
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
     }
 
-    /* Button styling */
+    /* Button styling with 3D effects */
     .stButton > button {
-        border-radius: 8px;
+        border-radius: 12px;
         font-weight: 600;
-        padding: 12px 24px;
-        transition: all 0.2s ease;
+        padding: 14px 28px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        border: none;
+        background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+        box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+    .stButton > button:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+    }
+    .stButton > button:hover:before {
+        left: 100%;
     }
     .stButton > button:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+    }
+    .stButton > button:active {
+        transform: translateY(-1px) scale(0.98);
     }
 
     /* Selectbox and input styling */
     .stSelectbox, .stTextInput, .stNumberInput, .stSlider {
-        border-radius: 8px;
-    }
-
-    /* Metric styling */
-    .stMetric {
-        background: rgba(255, 255, 255, 0.05);
-        padding: 20px;
         border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+    .stSelectbox:hover, .stTextInput:hover, .stNumberInput:hover, .stSlider:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transform: translateY(-1px);
     }
 
-    /* Dark mode metric adjustments */
+    /* Metric styling with 3D effects */
+    .stMetric {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+        padding: 24px;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+    .stMetric:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, #3b82f6, #8b5cf6, #06b6d4);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .stMetric:hover:before {
+        opacity: 1;
+    }
+    .stMetric:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Enhanced mobile responsiveness */
+    @media (max-width: 768px) {
+        .stMetric {
+            padding: 16px;
+            margin: 8px 0;
+        }
+        .metric-card {
+            padding: 16px;
+            margin: 8px 0;
+        }
+        .stTabs [data-baseweb="tab"] {
+            padding: 10px 16px;
+            font-size: 14px;
+        }
+        .stButton > button {
+            padding: 12px 20px;
+            font-size: 14px;
+        }
+    }
+
+    /* Dark mode metric adjustments with enhanced mobile support */
     @media (prefers-color-scheme: dark) {
         .stMetric {
-            background: rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+        .stMetric:hover {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
         }
         .stMetric label {
-            color: #9ca3af !important;
+            color: #d1d5db !important;
+            font-weight: 500;
         }
         .stMetric .metric-value {
             color: #f9fafb !important;
+            font-weight: 700;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
         }
         .stMetric .metric-delta {
             color: #10b981 !important;
+            font-weight: 600;
         }
         .stMetric .metric-delta.negative {
             color: #ef4444 !important;
+            font-weight: 600;
+        }
+
+        /* Enhanced mobile dark mode text visibility */
+        @media (max-width: 768px) {
+            .stMetric label {
+                color: #e5e7eb !important;
+                font-size: 12px;
+            }
+            .stMetric .metric-value {
+                color: #ffffff !important;
+                font-size: 18px;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+            }
+            .stMetric .metric-delta {
+                color: #34d399 !important;
+                font-size: 14px;
+            }
+            .stMetric .metric-delta.negative {
+                color: #f87171 !important;
+                font-size: 14px;
+            }
+        }
+    }
+
+    /* Enhanced card hover effects */
+    .metric-card, .analysis-card, .research-metric, .prediction-card, .correlation-highlight, .model-performance, .academic-section {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+    .metric-card:before, .analysis-card:before, .research-metric:before, .prediction-card:before, .correlation-highlight:before, .model-performance:before, .academic-section:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+        transition: left 0.6s;
+        z-index: 1;
+    }
+    .metric-card:hover:before, .analysis-card:hover:before, .research-metric:hover:before, .prediction-card:hover:before, .correlation-highlight:hover:before, .model-performance:hover:before, .academic-section:hover:before {
+        left: 100%;
+    }
+    .metric-card:hover, .analysis-card:hover, .research-metric:hover, .prediction-card:hover, .correlation-highlight:hover, .model-performance:hover, .academic-section:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Dark mode card enhancements */
+    @media (prefers-color-scheme: dark) {
+        .metric-card:hover, .analysis-card:hover, .research-metric:hover, .prediction-card:hover, .correlation-highlight:hover, .model-performance:hover, .academic-section:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
         }
     }
 </style>
