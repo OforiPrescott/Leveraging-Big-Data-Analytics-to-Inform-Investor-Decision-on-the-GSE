@@ -64,7 +64,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-/* ===== NUCLEAR OPTION: FORCE ALL TEXT WHITE IN DARK MODE ===== */
 st.markdown("""
 <style>
     /* ===== ABSOLUTE DARK MODE OVERRIDE ===== */
