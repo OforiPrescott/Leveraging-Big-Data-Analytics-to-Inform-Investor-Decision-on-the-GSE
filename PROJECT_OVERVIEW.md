@@ -75,7 +75,7 @@ This project combines:
 ### Amazing Numbers
 - **75% prediction accuracy** - Better than guessing!
 - **13 data sources** - Comprehensive coverage
-- **15 major companies** analyzed
+- **16 major companies** analyzed
 - **2,847 news articles** processed
 - **15,632 social media posts** monitored
 - **47 expert contributions** added
