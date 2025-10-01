@@ -61,84 +61,55 @@ def get_sentiment_stats():
 st.set_page_config(
     page_title="GSE AI Analytics - Academic Research",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="collapsed"
 )
 
 st.markdown("""
 <style>
-    /* ===== ABSOLUTE DARK MODE OVERRIDE ===== */
+    /* ===== DARK MODE SUPPORT ===== */
     @media (prefers-color-scheme: dark) {
-        /* FORCE EVERYTHING TO BE WHITE TEXT */
+        /* ABSOLUTE FORCE WHITE TEXT FOR ALL ELEMENTS */
         * {
             color: #ffffff !important;
         }
 
-        /* SPECIFIC OVERRIDES FOR MAXIMUM VISIBILITY */
-        .stMarkdown, .stText, p, h1, h2, h3, h4, h5, h6 {
-            color: #ffffff !important;
-            font-weight: 400 !important;
-        }
-
-        span, div, li, strong, em, b, i {
+        /* Streamlit specific elements - FORCE WHITE */
+        .stMarkdown, .stText, .stHeader, .stSubheader, .stCaption,
+        .stMarkdown p, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3,
+        .stMarkdown h4, .stMarkdown h5, .stMarkdown h6, .stMarkdown span,
+        .stMarkdown div, .stMarkdown li, .stMarkdown strong, .stMarkdown em {
             color: #ffffff !important;
         }
 
-        /* HEADERS - BRIGHT WHITE */
-        h1, h2, h3, h4, h5, h6 {
-            color: #ffffff !important;
-            font-weight: 700 !important;
-        }
-
-        /* LINKS - ULTRA BRIGHT CYAN BLUE FOR MAXIMUM VISIBILITY */
-        a {
-            color: #00D4FF !important;
-            text-decoration: underline !important;
-            font-weight: 600 !important;
-            text-shadow: 0 0 8px rgba(0, 212, 255, 0.5) !important;
-        }
-
-        /* TABLES - WHITE TEXT ON DARK BACKGROUNDS */
-        .stDataFrame, .stTable {
-            background-color: #1f2937 !important;
-            border: 1px solid #374151 !important;
-        }
-        .stDataFrame td, .stTable td {
-            color: #ffffff !important;
-            background-color: transparent !important;
-        }
-        .stDataFrame th, .stTable th {
-            background-color: #374151 !important;
-            color: #ffffff !important;
-            font-weight: 700 !important;
-        }
-
-        /* METRICS - WHITE TEXT */
-        .stMetric {
-            background: rgba(31, 41, 55, 0.8) !important;
-        }
-        .stMetric label, .stMetric .metric-value {
+        /* All text elements - FORCE WHITE */
+        p, h1, h2, h3, h4, h5, h6, span, div, li, strong, em, b, i,
+        label, input, textarea, select, button, code, pre, blockquote,
+        td, th, tr, table {
             color: #ffffff !important;
         }
 
-        /* BUTTONS - WHITE TEXT */
-        .stButton > button {
+        /* Specific Streamlit components - FORCE WHITE */
+        .element-container, .block-container, .main, .css-1lcbmhc,
+        .css-12oz5g7, .css-1r6slb0, .css-1v0mbdj, .css-1r6slb0,
+        .css-12oz5g7, .css-1lcbmhc, .css-1outpf7, .css-1fcdlhc {
             color: #ffffff !important;
         }
 
-        /* FORM ELEMENTS - WHITE TEXT */
-        .stSelectbox, .stTextInput, .stNumberInput, .stSlider {
+        /* Force all descendants to be white */
+        .element-container *, .block-container *, .main *,
+        .css-1lcbmhc *, .css-12oz5g7 *, .css-1r6slb0 *,
+        .css-1v0mbdj *, .css-1r6slb0 *, .css-12oz5g7 *,
+        .css-1lcbmhc *, .css-1outpf7 *, .css-1fcdlhc * {
             color: #ffffff !important;
         }
 
-        /* TABS - WHITE TEXT */
-        .stTabs [data-baseweb="tab"] {
-            color: #e5e7eb !important;
-        }
-        .stTabs [data-baseweb="tab"][aria-selected="true"] {
+        /* Main header - simple blue instead of purple */
+        .main-header {
+            background: #1e40af !important;
             color: #ffffff !important;
         }
 
-        /* CARDS - DARK BACKGROUNDS WITH WHITE TEXT */
+        /* Cards and sections */
         .metric-card, .analysis-card, .academic-section, .research-metric,
         .prediction-card, .correlation-highlight, .model-performance,
         .legend-guide {
@@ -147,57 +118,57 @@ st.markdown("""
             border: 1px solid #374151 !important;
         }
 
-        /* LEGEND GUIDE - SPECIFIC WHITE TEXT */
-        .legend-guide h4 {
-            color: #ffffff !important;
-            font-weight: 800 !important;
+        /* Tables */
+        .stDataFrame, .stTable {
+            background-color: #1f2937 !important;
+            border: 1px solid #374151 !important;
         }
-        .legend-guide strong {
-            color: #60a5fa !important;
-            font-weight: 700 !important;
-        }
-        .legend-guide div, .legend-guide p, .legend-guide span {
-            color: #ffffff !important;
-            font-weight: 500 !important;
-        }
-
-        /* ALERTS AND MESSAGES - WHITE TEXT */
-        .stAlert, .stSuccess, .stInfo, .stWarning, .stError {
+        .stDataFrame td, .stTable td {
             color: #ffffff !important;
             background-color: #1f2937 !important;
         }
-
-        /* CODE BLOCKS - LIGHT TEXT ON DARK */
-        code, pre {
+        .stDataFrame th, .stTable th {
             background-color: #374151 !important;
+            color: #ffffff !important;
+        }
+
+        /* Metrics */
+        .stMetric {
+            background: #1f2937 !important;
+            border: 1px solid #374151 !important;
+        }
+        .stMetric label, .stMetric .metric-value, .stMetric .metric-delta {
+            color: #ffffff !important;
+        }
+
+        /* Buttons */
+        .stButton > button {
+            background: #3b82f6 !important;
+            color: #ffffff !important;
+        }
+
+        /* Form elements */
+        .stSelectbox, .stTextInput, .stNumberInput, .stSlider {
+            background-color: #1f2937 !important;
+            color: #ffffff !important;
+            border: 1px solid #374151 !important;
+        }
+
+        /* Tabs */
+        .stTabs [data-baseweb="tab"] {
             color: #e5e7eb !important;
+            background-color: #1f2937 !important;
         }
-
-        /* EXPANDERS - WHITE TEXT */
-        .streamlit-expanderHeader {
+        .stTabs [data-baseweb="tab"][aria-selected="true"] {
             color: #ffffff !important;
-        }
-
-        /* RADIO AND CHECKBOXES - WHITE TEXT */
-        .stRadio label, .stCheckbox label {
-            color: #ffffff !important;
-        }
-
-        /* PROGRESS BARS - BLUE */
-        .stProgress .stProgress-bar {
             background-color: #3b82f6 !important;
         }
 
-        /* BLOCKQUOTES - LIGHT TEXT */
-        blockquote {
-            background-color: #374151 !important;
-            color: #e5e7eb !important;
-        }
-
-        /* MAIN HEADER - WHITE TEXT */
-        .main-header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%) !important;
+        /* Alerts */
+        .stAlert, .stSuccess, .stInfo, .stWarning, .stError {
+            background-color: #1f2937 !important;
             color: #ffffff !important;
+            border: 1px solid #374151 !important;
         }
     }
 
@@ -208,7 +179,7 @@ st.markdown("""
         }
 
         .main-header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%);
+            background: #1e40af;
             color: white;
         }
 
@@ -280,18 +251,6 @@ st.markdown("""
             background-color: #f9fafb !important;
             color: #1f2937 !important;
         }
-    }
-
-    /* Light mode styles */
-    .main-header {
-        background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%);
-        padding: 40px;
-        border-radius: 20px;
-        color: white;
-        margin-bottom: 40px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-        border: 2px solid rgba(255, 255, 255, 0.1);
-    }
     .metric-card {
         background: white;
         padding: 25px;
@@ -1040,16 +999,30 @@ with tabs[1]:
         fig_accuracy = px.bar(df_performance.head(8), x='Algorithm', y='Accuracy',
                             title="Model Accuracy Comparison",
                             color='Accuracy', color_continuous_scale='viridis')
-        fig_accuracy.update_layout(height=400)
-        st.plotly_chart(fig_accuracy, use_container_width=True)
+        fig_accuracy.update_layout(
+            height=400,
+            plot_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+            paper_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+            font_color='white' if st.get_option('theme.base') == 'dark' else 'black'
+        )
+        fig_accuracy.update_xaxes(gridcolor='rgba(128,128,128,0.2)')
+        fig_accuracy.update_yaxes(gridcolor='rgba(128,128,128,0.2)')
+        st.plotly_chart(fig_accuracy, use_container_width=True, use_container_height=True)
 
     with col2:
         st.subheader("🎯 F1-Score Analysis")
         fig_f1 = px.scatter(df_performance, x='Precision', y='Recall',
                           size='F1-Score', color='Algorithm',
                           title="Precision vs Recall Trade-off")
-        fig_f1.update_layout(height=400)
-        st.plotly_chart(fig_f1, use_container_width=True)
+        fig_f1.update_layout(
+            height=400,
+            plot_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+            paper_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+            font_color='white' if st.get_option('theme.base') == 'dark' else 'black'
+        )
+        fig_f1.update_xaxes(gridcolor='rgba(128,128,128,0.2)')
+        fig_f1.update_yaxes(gridcolor='rgba(128,128,128,0.2)')
+        st.plotly_chart(fig_f1, use_container_width=True, use_container_height=True)
 
     st.markdown('</div>', unsafe_allow_html=True)
 
@@ -1136,8 +1109,15 @@ with tabs[1]:
                                    title="Sentiment Distribution Across GSE Companies",
                                    labels={'value': 'Percentage', 'variable': 'Sentiment Type'},
                                    color_discrete_map={'Positive_Sentiment': '#10b981', 'Negative_Sentiment': '#ef4444', 'Neutral_Sentiment': '#6b7280'})
-        fig_sentiment_dist.update_layout(height=400)
-        st.plotly_chart(fig_sentiment_dist, use_container_width=True)
+        fig_sentiment_dist.update_layout(
+            height=400,
+            plot_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+            paper_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+            font_color='white' if st.get_option('theme.base') == 'dark' else 'black'
+        )
+        fig_sentiment_dist.update_xaxes(gridcolor='rgba(128,128,128,0.2)')
+        fig_sentiment_dist.update_yaxes(gridcolor='rgba(128,128,128,0.2)')
+        st.plotly_chart(fig_sentiment_dist, use_container_width=True, use_container_height=True)
 
     with col2:
         st.markdown("**Average Sentiment Scores**")
@@ -1145,8 +1125,15 @@ with tabs[1]:
                                   title="Average Sentiment Scores by Company",
                                   color='Avg_Sentiment_Score',
                                   color_continuous_scale=['#dc2626', '#fbbf24', '#10b981'])
-        fig_avg_sentiment.update_layout(height=400)
-        st.plotly_chart(fig_avg_sentiment, use_container_width=True)
+        fig_avg_sentiment.update_layout(
+            height=400,
+            plot_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+            paper_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+            font_color='white' if st.get_option('theme.base') == 'dark' else 'black'
+        )
+        fig_avg_sentiment.update_xaxes(gridcolor='rgba(128,128,128,0.2)')
+        fig_avg_sentiment.update_yaxes(gridcolor='rgba(128,128,128,0.2)')
+        st.plotly_chart(fig_avg_sentiment, use_container_width=True, use_container_height=True)
 
     # Key findings
     st.markdown('<div class="correlation-highlight">', unsafe_allow_html=True)
@@ -1219,17 +1206,49 @@ with tabs[1]:
         st.markdown("**Accuracy Comparison: Sentiment vs Traditional**")
         fig_comparison_acc = px.bar(df_comparison, x='Model_Type', y='Accuracy',
                                    title="Model Accuracy Comparison",
-                                   color='Accuracy', color_continuous_scale='viridis')
-        fig_comparison_acc.update_layout(height=400, xaxis_tickangle=-45)
-        st.plotly_chart(fig_comparison_acc, use_container_width=True)
+                                   color='Model_Type',
+                                   color_discrete_map={
+                                       'Sentiment-Based (LSTM)': '#10b981',
+                                       'Sentiment-Based (Gradient Boosting)': '#059669',
+                                       'Technical Analysis': '#6b7280',
+                                       'Fundamental Analysis': '#9ca3af',
+                                       'ARIMA (Time-Series)': '#d1d5db',
+                                       'Random Walk (Baseline)': '#f3f4f6'
+                                   })
+        fig_comparison_acc.update_layout(
+            height=400,
+            xaxis_tickangle=-45,
+            plot_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+            paper_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+            font_color='white' if st.get_option('theme.base') == 'dark' else 'black'
+        )
+        fig_comparison_acc.update_xaxes(gridcolor='rgba(128,128,128,0.2)')
+        fig_comparison_acc.update_yaxes(gridcolor='rgba(128,128,128,0.2)')
+        st.plotly_chart(fig_comparison_acc, use_container_width=True, use_container_height=True)
 
     with col2:
         st.markdown("**Correlation with Price Movements**")
         fig_comparison_corr = px.bar(df_comparison, x='Model_Type', y='Correlation_Price',
                                     title="Price Correlation Strength",
-                                    color='Correlation_Price', color_continuous_scale='plasma')
-        fig_comparison_corr.update_layout(height=400, xaxis_tickangle=-45)
-        st.plotly_chart(fig_comparison_corr, use_container_width=True)
+                                    color='Model_Type',
+                                    color_discrete_map={
+                                        'Sentiment-Based (LSTM)': '#3b82f6',
+                                        'Sentiment-Based (Gradient Boosting)': '#1d4ed8',
+                                        'Technical Analysis': '#6b7280',
+                                        'Fundamental Analysis': '#9ca3af',
+                                        'ARIMA (Time-Series)': '#d1d5db',
+                                        'Random Walk (Baseline)': '#f3f4f6'
+                                    })
+        fig_comparison_corr.update_layout(
+            height=400,
+            xaxis_tickangle=-45,
+            plot_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+            paper_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+            font_color='white' if st.get_option('theme.base') == 'dark' else 'black'
+        )
+        fig_comparison_corr.update_xaxes(gridcolor='rgba(128,128,128,0.2)')
+        fig_comparison_corr.update_yaxes(gridcolor='rgba(128,128,128,0.2)')
+        st.plotly_chart(fig_comparison_corr, use_container_width=True, use_container_height=True)
 
     st.markdown('<div class="model-performance">', unsafe_allow_html=True)
     st.subheader("🎯 Key Comparative Findings")
@@ -2320,8 +2339,13 @@ with tabs[2]:
                     xaxis_title="Time",
                     yaxis_title="Sentiment Score (-1 to +1)",
                     height=500,
-                    hovermode='x unified'
+                    hovermode='x unified',
+                    plot_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+                    paper_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+                    font_color='white' if st.get_option('theme.base') == 'dark' else 'black'
                 )
+                fig_ts.update_xaxes(gridcolor='rgba(128,128,128,0.2)', showgrid=True)
+                fig_ts.update_yaxes(gridcolor='rgba(128,128,128,0.2)', showgrid=True)
 
                 st.plotly_chart(fig_ts, use_container_width=True)
 
@@ -2368,8 +2392,15 @@ with tabs[2]:
                         y='Volatility',
                         title="Daily Sentiment Volatility"
                     )
-                    fig_volatility.update_layout(height=300)
-                    st.plotly_chart(fig_volatility, use_container_width=True)
+                    fig_volatility.update_layout(
+                        height=300,
+                        plot_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+                        paper_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+                        font_color='white' if st.get_option('theme.base') == 'dark' else 'black'
+                    )
+                    fig_volatility.update_xaxes(gridcolor='rgba(128,128,128,0.2)')
+                    fig_volatility.update_yaxes(gridcolor='rgba(128,128,128,0.2)')
+                    st.plotly_chart(fig_volatility, use_container_width=True, use_container_height=True)
                 else:
                     st.info("Insufficient data for volatility analysis")
 
@@ -2390,9 +2421,14 @@ with tabs[2]:
                 fig_labels.update_layout(
                     title="Daily Sentiment Label Distribution",
                     barmode='stack',
-                    height=300
+                    height=300,
+                    plot_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+                    paper_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+                    font_color='white' if st.get_option('theme.base') == 'dark' else 'black'
                 )
-                st.plotly_chart(fig_labels, use_container_width=True)
+                fig_labels.update_xaxes(gridcolor='rgba(128,128,128,0.2)')
+                fig_labels.update_yaxes(gridcolor='rgba(128,128,128,0.2)')
+                st.plotly_chart(fig_labels, use_container_width=True, use_container_height=True)
 
             # Key insights
             st.markdown('<div class="correlation-highlight">', unsafe_allow_html=True)
@@ -2536,23 +2572,29 @@ with tabs[3]:
             df_corr_matrix = pd.DataFrame(correlation_matrix)
             df_corr_matrix = df_corr_matrix.set_index('Variables')
 
-            # Create correlation heatmap
+            # Create correlation heatmap with better visibility
             fig_corr_heatmap = go.Figure(data=go.Heatmap(
                 z=df_corr_matrix.values,
                 x=df_corr_matrix.columns,
                 y=df_corr_matrix.index,
-                colorscale='RdBu',
+                colorscale=['#dc2626', '#ef4444', '#f87171', '#fca5a5', '#fecaca', '#ffffff', '#dbeafe', '#bfdbfe', '#93c5fd', '#3b82f6', '#1d4ed8'],
                 zmin=-1, zmax=1,
                 text=np.round(df_corr_matrix.values, 2),
                 texttemplate='%{text}',
-                textfont={"size":10},
-                hoverongaps=False
+                textfont={"size":12, "color": "white" if st.get_option('theme.base') == 'dark' else "black"},
+                hoverongaps=False,
+                hovertemplate='%{y} vs %{x}<br>Correlation: %{z:.3f}<extra></extra>'
             ))
 
             fig_corr_heatmap.update_layout(
                 title="Sentiment-Price Correlation Matrix",
-                height=400
+                height=500,
+                plot_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+                paper_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+                font_color='white' if st.get_option('theme.base') == 'dark' else 'black'
             )
+            fig_corr_heatmap.update_xaxes(gridcolor='rgba(128,128,128,0.2)')
+            fig_corr_heatmap.update_yaxes(gridcolor='rgba(128,128,128,0.2)')
 
             st.plotly_chart(fig_corr_heatmap, use_container_width=True)
 
@@ -2660,8 +2702,15 @@ with tabs[3]:
                                 title="Sentiment-Price Correlation Over Time",
                                 labels={'value': 'Correlation Coefficient', 'variable': 'Metric'})
 
-            fig_corr_ts.update_layout(height=400)
-            st.plotly_chart(fig_corr_ts, use_container_width=True)
+            fig_corr_ts.update_layout(
+                height=400,
+                plot_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+                paper_bgcolor='rgba(0,0,0,0)' if st.get_option('theme.base') == 'dark' else 'white',
+                font_color='white' if st.get_option('theme.base') == 'dark' else 'black'
+            )
+            fig_corr_ts.update_xaxes(gridcolor='rgba(128,128,128,0.2)')
+            fig_corr_ts.update_yaxes(gridcolor='rgba(128,128,128,0.2)')
+            st.plotly_chart(fig_corr_ts, use_container_width=True, use_container_height=True)
 
     st.markdown('</div>', unsafe_allow_html=True)
 
@@ -2702,7 +2751,7 @@ with col3:
 st.markdown("""
 <div style='text-align: center; color: #666; padding: 20px;'>
     <p><strong>GSE AI Analytics Platform</strong></p>
-    <p>Built with ❤️ by Amanda for Ghanaian investors and academic researchers</p>
-    <p><small>© 2025 Amanda | Advanced Financial Analytics & Academic Research Platform</small></p>
+    <p>Advanced Financial Analytics & Academic Research Platform</p>
+    <p><small>© 2025 | Leveraging Big Data Analytics for Investor Decision-Making</small></p>
 </div>
 """, unsafe_allow_html=True)

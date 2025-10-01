@@ -81,3 +81,8 @@ gatherUsageStats = false
 
 # Port where users should point their browsers in order to connect to the app.
 serverPort = 8501
+
+[theme]
+
+# Set the base theme to dark mode
+base = "dark"
