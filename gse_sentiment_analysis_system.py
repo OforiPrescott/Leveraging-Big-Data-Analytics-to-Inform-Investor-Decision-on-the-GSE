@@ -847,7 +847,7 @@ class GSESentimentAnalyzer:
         if len(df) < 2:
             return 0.0
         
-        df['timestamp'] = pd.to_datetime(df['timestamp'])
+        df['timestamp'] = pd.to_datetime(df['timestamp'], format='mixed', utc=True)
         df = df.sort_values('timestamp')
         
         # Simple linear trend
@@ -1486,7 +1486,7 @@ class GSESentimentAnalyzer:
             conn.close()
 
             if not df.empty:
-                df['timestamp'] = pd.to_datetime(df['timestamp'])
+                df['timestamp'] = pd.to_datetime(df['timestamp'], format='mixed', utc=True)
                 df.set_index('timestamp', inplace=True)
 
             return df

@@ -2270,7 +2270,7 @@ with tabs[2]:
 
     if not sentiment_df.empty:
         # Convert timestamp and prepare time series
-        sentiment_df['timestamp'] = pd.to_datetime(sentiment_df['timestamp'])
+        sentiment_df['timestamp'] = pd.to_datetime(sentiment_df['timestamp'], format='mixed', utc=True)
 
         # Company selection for detailed analysis
         selected_company = st.selectbox(
