@@ -256,22 +256,24 @@ st.markdown("""
             color: #f9fafb !important;
         }
 
-        /* Lighter background for legend/guide in dark mode */
+        /* Much lighter background for legend/guide in dark mode for better readability */
         .legend-guide {
-            background: linear-gradient(135deg, #2d3748 0%, #374151 100%) !important;
-            border: 1px solid #4b5563 !important;
+            background: linear-gradient(135deg, #4b5563 0%, #6b7280 100%) !important;
+            border: 2px solid #9ca3af !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
         }
         .legend-guide h4 {
             color: #ffffff !important;
+            font-weight: 700 !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
         }
         .legend-guide strong {
-            color: #60a5fa !important;
+            color: #3b82f6 !important;
+            font-weight: 600 !important;
         }
-        .legend-guide div {
-            color: #e5e7eb !important;
-        }
-        .legend-guide p, .legend-guide span {
-            color: #e5e7eb !important;
+        .legend-guide div, .legend-guide p, .legend-guide span {
+            color: #ffffff !important;
+            font-weight: 500 !important;
         }
 
         /* Ensure all nested text in cards is visible */
