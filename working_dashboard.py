@@ -2754,6 +2754,6 @@ st.markdown("""
 <div style='text-align: center; color: #666; padding: 20px;'>
     <p><strong>GSE AI Analytics Platform</strong></p>
     <p>Advanced Financial Analytics & Academic Research Platform</p>
-    <p><small>© 2025 | Leveraging Big Data Analytics for Investor Decision-Making</small></p>
+    <p><small>© 2025 Amanda | Leveraging Big Data Analytics for Investor Decision-Making</small></p>
 </div>
 """, unsafe_allow_html=True)
