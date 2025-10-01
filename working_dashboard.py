@@ -103,10 +103,11 @@ st.markdown("""
             color: #ffffff !important;
         }
 
-        /* Main header - simple blue instead of purple */
+        /* Main header - vibrant gradient for better visibility */
         .main-header {
-            background: #1e40af !important;
+            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%) !important;
             color: #ffffff !important;
+            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.3) !important;
         }
 
         /* Cards and sections */
@@ -179,8 +180,9 @@ st.markdown("""
         }
 
         .main-header {
-            background: #1e40af;
+            background: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #8b5cf6 100%);
             color: white;
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2);
         }
 
         .metric-card {
