@@ -1998,7 +1998,7 @@ with tabs[6]:
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Research Data & Export Tab
-with tabs[5]:
+with tabs[7]:
     st.markdown('<div class="academic-section">', unsafe_allow_html=True)
     st.header("📋 Research Data & Export")
 
