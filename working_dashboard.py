@@ -339,8 +339,8 @@ st.markdown("""
             margin: 8px 0;
         }
         .metric-card {
-            padding: 16px;
-            margin: 8px 0;
+            padding: 16px !important;
+            margin: 8px 0 !important;
         }
         .stTabs [data-baseweb="tab"] {
             padding: 10px 16px;
@@ -349,6 +349,50 @@ st.markdown("""
         .stButton > button {
             padding: 12px 20px;
             font-size: 14px;
+        }
+    }
+
+    /* Critical mobile dark mode fixes for System Status cards */
+    @media (max-width: 768px) and (prefers-color-scheme: dark) {
+        .metric-card {
+            background: #1f2937 !important;
+            color: #ffffff !important;
+            border-left: 5px solid #3b82f6 !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4) !important;
+            padding: 20px !important;
+            margin: 10px 0 !important;
+            border-radius: 12px !important;
+        }
+        .metric-card h3 {
+            color: #ffffff !important;
+            font-size: 16px !important;
+            font-weight: bold !important;
+            margin: 0 0 8px 0 !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+        }
+        .metric-card p {
+            color: #e5e7eb !important;
+            font-size: 14px !important;
+            margin: 4px 0 !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+        }
+        .metric-card small {
+            color: #9ca3af !important;
+            font-size: 12px !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+        }
+        .status-good, .status-warning, .status-error {
+            font-weight: bold !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+        }
+        .status-good {
+            color: #34d399 !important;
+        }
+        .status-warning {
+            color: #fbbf24 !important;
+        }
+        .status-error {
+            color: #f87171 !important;
         }
     }
 
@@ -451,7 +495,7 @@ st.markdown("""
     </p>
     <div style='text-align: center; margin-top: 25px; opacity: 0.9;'>
         <span style='background: rgba(255,255,255,0.2); padding: 8px 16px; border-radius: 20px; font-size: 0.9em;'>
-            Chapter 4: Findings & Analysis - Real-Time Demonstration
+             Findings & Analysis - Real-Time Demonstration
         </span>
     </div>
 </div>
