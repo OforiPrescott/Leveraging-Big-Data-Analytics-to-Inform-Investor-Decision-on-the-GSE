@@ -409,7 +409,7 @@ class ManualSentimentInterface:
                         'very_negative': '#ff0000'
                     }
                 )
-                st.plotly_chart(fig_sentiment, use_container_width=True)
+                st.plotly_chart(fig_sentiment, config={'responsive': True, 'displayModeBar': False})
         
         with col2:
             # Company distribution bar chart
@@ -421,7 +421,7 @@ class ManualSentimentInterface:
                     labels={'x': 'Company', 'y': 'Number of Entries'}
                 )
                 fig_companies.update_layout(xaxis_tickangle=-45)
-                st.plotly_chart(fig_companies, use_container_width=True)
+                st.plotly_chart(fig_companies, config={'responsive': True, 'displayModeBar': False})
         
         # News types distribution
         if summary['news_type_distribution']:
@@ -432,7 +432,7 @@ class ManualSentimentInterface:
                 orientation='h',
                 title="Distribution of News Types"
             )
-            st.plotly_chart(fig_news, use_container_width=True)
+            st.plotly_chart(fig_news, config={'responsive': True, 'displayModeBar': False})
         
         # Recent entries table
         st.subheader("📋 Recent Entries")
@@ -521,7 +521,7 @@ class ManualSentimentInterface:
                     line=dict(color='red', dash='dash')
                 )
             
-            st.plotly_chart(fig_timeline, use_container_width=True)
+            st.plotly_chart(fig_timeline, config={'responsive': True, 'displayModeBar': False})
         
         # Recent entries for this company
         if not company_df.empty:

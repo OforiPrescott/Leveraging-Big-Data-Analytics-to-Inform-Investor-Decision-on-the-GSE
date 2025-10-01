@@ -1776,7 +1776,7 @@ def create_streamlit_dashboard():
                 yaxis_title="Index Value (GHS)",
                 height=400
             )
-            st.plotly_chart(fig_price, use_container_width=True)
+            st.plotly_chart(fig_price, config={'responsive': True, 'displayModeBar': False})
 
             # Volume chart
             fig_volume = go.Figure()
@@ -1792,7 +1792,7 @@ def create_streamlit_dashboard():
                 yaxis_title="Volume",
                 height=300
             )
-            st.plotly_chart(fig_volume, use_container_width=True)
+            st.plotly_chart(fig_volume, config={'responsive': True, 'displayModeBar': False})
 
         # Generate and display report
         with st.spinner("Analyzing company sentiment..."):
@@ -1865,7 +1865,7 @@ def create_streamlit_dashboard():
                     color_discrete_sequence=colors
                 )
                 fig_sentiment.update_traces(textposition='inside', textinfo='percent+label')
-                st.plotly_chart(fig_sentiment, use_container_width=True)
+                st.plotly_chart(fig_sentiment, config={'responsive': True, 'displayModeBar': False})
 
             with col2:
                 # AI Predictions with enhanced styling
@@ -1932,7 +1932,7 @@ def create_streamlit_dashboard():
                 size_max=50
             )
             fig_heatmap.update_layout(height=400)
-            st.plotly_chart(fig_heatmap, use_container_width=True)
+            st.plotly_chart(fig_heatmap, config={'responsive': True, 'displayModeBar': False})
     
     elif page == "Manual Sentiment Input":
         st.header("Manual Sentiment Input")
@@ -2277,7 +2277,7 @@ def create_streamlit_dashboard():
                             height=500
                         )
 
-                        st.plotly_chart(fig_ts, use_container_width=True)
+                        st.plotly_chart(fig_ts, config={'responsive': True, 'displayModeBar': False})
 
                         # Sentiment distribution over time
                         st.subheader("Sentiment Distribution Over Time")
@@ -2318,7 +2318,7 @@ def create_streamlit_dashboard():
                             height=400
                         )
 
-                        st.plotly_chart(fig_monthly, use_container_width=True)
+                        st.plotly_chart(fig_monthly, config={'responsive': True, 'displayModeBar': False})
 
                     else:
                         st.warning(f"⚠️ No sentiment data available for {selected_company_ts} in the selected period")
