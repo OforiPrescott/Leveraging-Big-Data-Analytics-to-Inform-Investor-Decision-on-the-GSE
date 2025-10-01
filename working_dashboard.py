@@ -2358,32 +2358,38 @@ with tabs[2]:
 
                 current_sentiment = ts_data['sentiment_score'].iloc[-1] if not ts_data.empty else 0
 
-                # Improved trend analysis logic
+                # Improved trend analysis logic (clean, no emojis)
                 if len(ts_data) >= 24:
                     # Compare current sentiment to 24-hour moving average
                     ma_24h = ts_data['sentiment_ma_24h'].iloc[-1]
                     if current_sentiment > ma_24h + 0.1:  # Significantly above average
-                        sentiment_trend = "↗️ Bullish Momentum"
-                        trend_color = "🟢"
+                        sentiment_trend = "Rising above recent average"
+                        trend_explanation = "Current sentiment is higher than the past 24-hour average"
                     elif current_sentiment > ma_24h - 0.1:  # Near average
-                        sentiment_trend = "➡️ Stable"
-                        trend_color = "🟡"
+                        sentiment_trend = "Stable around average"
+                        trend_explanation = "Current sentiment is close to the past 24-hour average"
                     else:  # Significantly below average
-                        sentiment_trend = "↘️ Bearish Pressure"
-                        trend_color = "🔴"
+                        sentiment_trend = "Below recent average"
+                        trend_explanation = "Current sentiment is lower than the past 24-hour average"
                 else:
-                    sentiment_trend = "📊 Analyzing"
-                    trend_color = "⚪"
+                    sentiment_trend = "Analyzing trend"
+                    trend_explanation = "Collecting more data to determine trend direction"
 
-                # Sentiment interpretation
+                # Sentiment interpretation with layman explanations
                 if current_sentiment > 0.2:
-                    sentiment_interpretation = "Bullish 🟢"
+                    sentiment_interpretation = "Bullish (Positive market sentiment)"
+                    explanation = "Investors are generally optimistic about this stock"
                 elif current_sentiment > -0.2:
-                    sentiment_interpretation = "Neutral 🟡"
+                    sentiment_interpretation = "Neutral (Balanced sentiment)"
+                    explanation = "Market sentiment is neither strongly positive nor negative"
                 else:
-                    sentiment_interpretation = "Bearish 🔴"
+                    sentiment_interpretation = "Bearish (Negative market sentiment)"
+                    explanation = "Investors are generally pessimistic about this stock"
 
-                st.metric("Current Sentiment", f"{current_sentiment:.3f}", f"{sentiment_trend} | {sentiment_interpretation}")
+                st.metric("Current Sentiment", f"{current_sentiment:.3f}", f"{sentiment_interpretation}")
+                st.caption(f"💡 {explanation}")
+                if 'trend_explanation' in locals():
+                    st.caption(f"📈 Trend: {sentiment_trend} - {trend_explanation}")
                 st.metric("24h Average", f"{ts_data['sentiment_ma_24h'].iloc[-1]:.3f}" if not ts_data.empty else "N/A")
                 st.metric("7-Day Trend", f"{ts_data['sentiment_ma_7d'].iloc[-1]:.3f}" if not ts_data.empty else "N/A")
                 st.metric("Volatility", f"{ts_data['sentiment_score'].std():.3f}" if not ts_data.empty else "N/A")
