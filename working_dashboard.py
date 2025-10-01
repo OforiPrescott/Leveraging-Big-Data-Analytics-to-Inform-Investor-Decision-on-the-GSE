@@ -733,10 +733,10 @@ st.markdown("""
 st.markdown("""
 <div class="main-header">
     <h1 style='color: white; margin: 0; font-size: 2.8em; text-align: center; font-weight: 700;'>
-        📊 GSE Sentiment Analysis & Prediction System
+        GSE Sentiment Analysis & Prediction System
     </h1>
     <p style='font-size: 1.3em; margin: 15px 0 0 0; text-align: center; opacity: 0.95; font-weight: 500;'>
-        🔬 Leveraging Big Data Analytics for Investor Decision-Making on the Ghana Stock Exchange
+         Leveraging Big Data Analytics for Investor Decision-Making on the Ghana Stock Exchange
     </p>
     <p style='text-align: center; margin: 20px 0 0 0; font-style: italic; opacity: 0.85; font-size: 1.1em;'>
         "Empirical Investigation of Sentiment-Driven Market Prediction in Emerging Markets"
