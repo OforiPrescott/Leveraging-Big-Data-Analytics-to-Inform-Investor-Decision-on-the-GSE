@@ -267,6 +267,12 @@ st.markdown("""
         .legend-guide strong {
             color: #60a5fa !important;
         }
+        .legend-guide div {
+            color: #e5e7eb !important;
+        }
+        .legend-guide p, .legend-guide span {
+            color: #e5e7eb !important;
+        }
 
         /* Ensure all nested text in cards is visible */
         .metric-card *, .analysis-card *, .research-metric *, .prediction-card *,
