@@ -64,84 +64,121 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for professional academic look with dark mode support
+# Comprehensive CSS for perfect light and dark mode compatibility
 st.markdown("""
 <style>
-    /* Dark mode compatibility */
-    @media (prefers-color-scheme: dark) {
+    /* ===== RESET AND BASE STYLES ===== */
+    * {
+        box-sizing: border-box;
+    }
+
+    /* ===== LIGHT MODE STYLES ===== */
+    @media (prefers-color-scheme: light) {
+        /* Base text colors for light mode */
+        .stMarkdown, .stText, p, h1, h2, h3, h4, h5, h6, span, div, li, strong, em, b, i {
+            color: #1f2937 !important;
+        }
+
         .main-header {
             background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%);
             color: white;
         }
+
         .metric-card {
-            background: #1f2937;
-            color: #f9fafb;
-            border-left: 5px solid #3b82f6;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            background: white;
+            color: #1f2937;
+            border-left: 5px solid #1e40af;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .metric-card:hover {
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-        }
+
         .analysis-card {
-            background: #111827;
-            color: #f9fafb;
-            border: 1px solid #374151;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            color: #1f2937;
+            border: 1px solid #e2e8f0;
         }
+
         .academic-section {
-            background: #111827;
-            color: #f9fafb;
+            background: #f8fafc;
+            color: #1f2937;
             border-left: 5px solid #3b82f6;
         }
+
         .research-metric {
-            background: linear-gradient(135deg, #1e3a5f 0%, #2d4a77 100%);
-            color: #f9fafb;
-            border: 1px solid #3b82f6;
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            color: #1f2937;
+            border: 1px solid #93c5fd;
         }
+
         .prediction-card {
-            background: #1f2937;
-            color: #f9fafb;
-            border: 2px solid #374151;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            background: white;
+            color: #1f2937;
+            border: 2px solid #e5e7eb;
         }
+
         .correlation-highlight {
-            background: linear-gradient(135deg, #451a03 0%, #78350f 100%);
-            color: #f9fafb;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            color: #1f2937;
             border-left: 5px solid #f59e0b;
         }
+
         .model-performance {
-            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
-            color: #f9fafb;
-            border: 1px solid #10b981;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            color: #1f2937;
+            border: 1px solid #86efac;
         }
-        /* Enhanced text visibility in dark mode */
-        .stMarkdown, .stText, p, h1, h2, h3, h4, h5, h6, span, div, li, strong, em, b, i {
+
+        .legend-guide {
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            border: 1px solid #e2e8f0;
+        }
+        .legend-guide h4 {
+            color: #1f2937;
+        }
+        .legend-guide strong {
+            color: #1f2937;
+        }
+        .legend-guide div, .legend-guide p, .legend-guide span {
+            color: #374151;
+        }
+
+        /* Light mode specific elements */
+        .stDataFrame, .stTable {
+            background-color: white !important;
+            border: 1px solid #e5e7eb !important;
+        }
+        .stDataFrame td, .stTable td {
+            color: #1f2937 !important;
+        }
+        .stDataFrame th, .stTable th {
+            background-color: #f9fafb !important;
+            color: #1f2937 !important;
+        }
+    }
+
+    /* ===== DARK MODE STYLES ===== */
+    @media (prefers-color-scheme: dark) {
+        /* Universal dark mode text override */
+        .stMarkdown, .stText, p, h1, h2, h3, h4, h5, h6, span, div, li, strong, em, b, i,
+        .stMarkdown p, .stMarkdown span, .stMarkdown div,
+        .stAlert, .stSuccess, .stInfo, .stWarning, .stError,
+        .stRadio label, .stCheckbox label,
+        .streamlit-expanderHeader {
             color: #f9fafb !important;
         }
 
-        /* Specific text elements */
-        .stMarkdown p, .stMarkdown span, .stMarkdown div {
-            color: #f9fafb !important;
-        }
-
-        /* Headers with better contrast */
+        /* Headers with maximum contrast */
         h1, h2, h3, h4, h5, h6 {
             color: #ffffff !important;
             font-weight: 600 !important;
         }
 
-        /* List items and bullet points */
-        li, ul li, ol li {
-            color: #e5e7eb !important;
-        }
-
-        /* Strong and emphasized text */
+        /* Strong text */
         strong, b {
             color: #ffffff !important;
             font-weight: 700 !important;
         }
 
-        /* Links in dark mode */
+        /* Links */
         a {
             color: #3b82f6 !important;
         }
@@ -149,7 +186,142 @@ st.markdown("""
             color: #60a5fa !important;
         }
 
-        /* Code blocks and inline code */
+        .main-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3730a3 50%, #581c87 100%);
+            color: white;
+        }
+
+        .metric-card {
+            background: #1f2937;
+            color: #f9fafb;
+            border-left: 5px solid #3b82f6;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .analysis-card {
+            background: #111827;
+            color: #f9fafb;
+            border: 1px solid #374151;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .academic-section {
+            background: #111827;
+            color: #f9fafb;
+            border-left: 5px solid #3b82f6;
+        }
+
+        .research-metric {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2d4a77 100%);
+            color: #f9fafb;
+            border: 1px solid #3b82f6;
+        }
+
+        .prediction-card {
+            background: #1f2937;
+            color: #f9fafb;
+            border: 2px solid #374151;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .correlation-highlight {
+            background: linear-gradient(135deg, #451a03 0%, #78350f 100%);
+            color: #f9fafb;
+            border-left: 5px solid #f59e0b;
+        }
+
+        .model-performance {
+            background: linear-gradient(135deg, #064e3b 0%, #065f46 100%);
+            color: #f9fafb;
+            border: 1px solid #10b981;
+        }
+
+        /* PERFECTLY READABLE LEGEND GUIDE IN DARK MODE */
+        .legend-guide {
+            background: linear-gradient(135deg, #6b7280 0%, #9ca3af 100%) !important;
+            border: 3px solid #d1d5db !important;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) !important;
+            border-radius: 12px !important;
+        }
+        .legend-guide h4 {
+            color: #000000 !important;
+            font-weight: 800 !important;
+            text-shadow: none !important;
+            background: rgba(255, 255, 255, 0.9) !important;
+            padding: 8px 12px !important;
+            border-radius: 6px !important;
+            margin: 0 0 12px 0 !important;
+        }
+        .legend-guide strong {
+            color: #1e40af !important;
+            font-weight: 700 !important;
+            background: rgba(255, 255, 255, 0.8) !important;
+            padding: 2px 4px !important;
+            border-radius: 3px !important;
+        }
+        .legend-guide div, .legend-guide p, .legend-guide span {
+            color: #000000 !important;
+            font-weight: 600 !important;
+            background: rgba(255, 255, 255, 0.95) !important;
+            padding: 4px 8px !important;
+            border-radius: 4px !important;
+            margin: 2px 0 !important;
+            line-height: 1.4 !important;
+        }
+
+        /* DataFrames and Tables */
+        .stDataFrame, .stTable {
+            background-color: #1f2937 !important;
+            border: 1px solid #374151 !important;
+        }
+        .stDataFrame td, .stTable td {
+            color: #e5e7eb !important;
+            background-color: transparent !important;
+        }
+        .stDataFrame th, .stTable th {
+            background-color: #374151 !important;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+        }
+
+        /* Metrics */
+        .stMetric label {
+            color: #d1d5db !important;
+        }
+        .stMetric .metric-value {
+            color: #ffffff !important;
+        }
+        .stMetric .metric-delta.positive {
+            color: #10b981 !important;
+        }
+        .stMetric .metric-delta.negative {
+            color: #ef4444 !important;
+        }
+
+        /* Buttons */
+        .stButton > button {
+            color: #ffffff !important;
+        }
+
+        /* Form elements */
+        .stSelectbox, .stTextInput, .stNumberInput {
+            color: #f9fafb !important;
+        }
+
+        /* Tabs */
+        .stTabs [data-baseweb="tab"] {
+            color: #e5e7eb !important;
+        }
+        .stTabs [data-baseweb="tab"][aria-selected="true"] {
+            color: #ffffff !important;
+        }
+
+        /* Progress bars */
+        .stProgress .stProgress-bar {
+            background-color: #3b82f6 !important;
+        }
+
+        /* Code blocks */
         code, pre {
             background-color: #374151 !important;
             color: #e5e7eb !important;
@@ -163,120 +335,7 @@ st.markdown("""
             border-left: 4px solid #3b82f6 !important;
         }
 
-        /* Table text visibility */
-        .stDataFrame, .stTable {
-            background-color: #1f2937 !important;
-        }
-        .stDataFrame td, .stTable td {
-            color: #e5e7eb !important;
-            background-color: transparent !important;
-        }
-        .stDataFrame th, .stTable th {
-            background-color: #374151 !important;
-            color: #ffffff !important;
-            font-weight: 600 !important;
-        }
-
-        /* Metric text */
-        .stMetric label {
-            color: #9ca3af !important;
-        }
-        .stMetric .metric-value {
-            color: #ffffff !important;
-        }
-        .stMetric .metric-delta {
-            color: #10b981 !important;
-        }
-        .stMetric .metric-delta.negative {
-            color: #ef4444 !important;
-        }
-
-        /* Button text */
-        .stButton > button {
-            color: #ffffff !important;
-        }
-
-        /* Selectbox and input text */
-        .stSelectbox, .stTextInput, .stNumberInput {
-            color: #f9fafb !important;
-        }
-
-        /* Expander text */
-        .streamlit-expanderHeader {
-            color: #f9fafb !important;
-        }
-
-        /* Tab text */
-        .stTabs [data-baseweb="tab"] {
-            color: #e5e7eb !important;
-        }
-        .stTabs [data-baseweb="tab"][aria-selected="true"] {
-            color: #ffffff !important;
-        }
-
-        /* Additional text elements for comprehensive coverage */
-        .stAlert, .stSuccess, .stInfo, .stWarning, .stError {
-            color: #f9fafb !important;
-        }
-
-        /* Progress bars and sliders */
-        .stProgress .stProgress-bar {
-            background-color: #3b82f6 !important;
-        }
-
-        /* Radio buttons and checkboxes */
-        .stRadio label, .stCheckbox label {
-            color: #e5e7eb !important;
-        }
-
-        /* Dataframe index and column headers */
-        .stDataFrame .index_name, .stTable .index_name {
-            color: #9ca3af !important;
-        }
-
-        /* Empty state messages */
-        .stEmpty {
-            color: #9ca3af !important;
-        }
-
-        /* Custom card content */
-        .metric-card p, .metric-card h3, .metric-card small,
-        .analysis-card p, .analysis-card h3, .analysis-card small,
-        .research-metric p, .research-metric h3, .research-metric small,
-        .prediction-card p, .prediction-card h3, .prediction-card small,
-        .correlation-highlight p, .correlation-highlight h3, .correlation-highlight small,
-        .model-performance p, .model-performance h3, .model-performance small,
-        .academic-section p, .academic-section h3, .academic-section small {
-            color: #f9fafb !important;
-        }
-
-        /* Legend/guide text */
-        .metric-card, .analysis-card, .research-metric, .prediction-card,
-        .correlation-highlight, .model-performance, .academic-section {
-            color: #f9fafb !important;
-        }
-
-        /* Much lighter background for legend/guide in dark mode for better readability */
-        .legend-guide {
-            background: linear-gradient(135deg, #4b5563 0%, #6b7280 100%) !important;
-            border: 2px solid #9ca3af !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
-        }
-        .legend-guide h4 {
-            color: #ffffff !important;
-            font-weight: 700 !important;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
-        }
-        .legend-guide strong {
-            color: #3b82f6 !important;
-            font-weight: 600 !important;
-        }
-        .legend-guide div, .legend-guide p, .legend-guide span {
-            color: #ffffff !important;
-            font-weight: 500 !important;
-        }
-
-        /* Ensure all nested text in cards is visible */
+        /* All card content text */
         .metric-card *, .analysis-card *, .research-metric *, .prediction-card *,
         .correlation-highlight *, .model-performance *, .academic-section * {
             color: inherit !important;
