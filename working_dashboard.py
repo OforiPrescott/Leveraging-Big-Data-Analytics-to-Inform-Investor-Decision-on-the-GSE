@@ -89,11 +89,12 @@ st.markdown("""
             font-weight: 700 !important;
         }
 
-        /* LINKS - BRIGHT BLUE */
+        /* LINKS - ULTRA BRIGHT CYAN BLUE FOR MAXIMUM VISIBILITY */
         a {
-            color: #60a5fa !important;
+            color: #00D4FF !important;
             text-decoration: underline !important;
-            font-weight: 500 !important;
+            font-weight: 600 !important;
+            text-shadow: 0 0 8px rgba(0, 212, 255, 0.5) !important;
         }
 
         /* TABLES - WHITE TEXT ON DARK BACKGROUNDS */
