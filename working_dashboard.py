@@ -178,12 +178,18 @@ st.markdown("""
             font-weight: 700 !important;
         }
 
-        /* Links */
+        /* Links - highly visible in dark mode */
         a {
-            color: #3b82f6 !important;
+            color: #60a5fa !important;
+            font-weight: 500 !important;
+            text-decoration: underline !important;
         }
         a:hover {
-            color: #60a5fa !important;
+            color: #93c5fd !important;
+            text-decoration: none !important;
+        }
+        a:visited {
+            color: #a78bfa !important;
         }
 
         .main-header {
@@ -236,37 +242,27 @@ st.markdown("""
             border: 1px solid #10b981;
         }
 
-        /* PERFECTLY READABLE LEGEND GUIDE IN DARK MODE */
+        /* PERFECTLY READABLE LEGEND GUIDE IN DARK MODE - ALL WHITE TEXT */
         .legend-guide {
-            background: linear-gradient(135deg, #6b7280 0%, #9ca3af 100%) !important;
-            border: 3px solid #d1d5db !important;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) !important;
+            background: #1f2937 !important;
+            border: 2px solid #3b82f6 !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
             border-radius: 12px !important;
         }
         .legend-guide h4 {
-            color: #000000 !important;
-            font-weight: 800 !important;
-            text-shadow: none !important;
-            background: rgba(255, 255, 255, 0.9) !important;
-            padding: 8px 12px !important;
-            border-radius: 6px !important;
-            margin: 0 0 12px 0 !important;
+            color: #ffffff !important;
+            font-weight: 700 !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+            margin: 0 0 10px 0 !important;
         }
         .legend-guide strong {
-            color: #1e40af !important;
-            font-weight: 700 !important;
-            background: rgba(255, 255, 255, 0.8) !important;
-            padding: 2px 4px !important;
-            border-radius: 3px !important;
+            color: #60a5fa !important;
+            font-weight: 600 !important;
         }
         .legend-guide div, .legend-guide p, .legend-guide span {
-            color: #000000 !important;
-            font-weight: 600 !important;
-            background: rgba(255, 255, 255, 0.95) !important;
-            padding: 4px 8px !important;
-            border-radius: 4px !important;
-            margin: 2px 0 !important;
-            line-height: 1.4 !important;
+            color: #f9fafb !important;
+            font-weight: 500 !important;
+            line-height: 1.5 !important;
         }
 
         /* DataFrames and Tables */
