@@ -31,7 +31,7 @@ This system implements a **hybrid automated-manual sentiment analysis framework*
 - **5 sentiment analysis methods** (VADER, TextBlob, Lexicon, Hybrid, Advanced BERT)
 - **12 machine learning algorithms** for price movement prediction
 - **Real-time processing** with 70-75% prediction accuracy
-- **Interactive research dashboard** for Chapter 4 analysis and validation
+- **Interactive research dashboard** for analysis and validation
 
 **Key Achievement:** Establishes Granger causality between sentiment and price movements in 6/10 GSE companies, demonstrating the predictive power of sentiment-based analysis in emerging markets.
 
@@ -638,7 +638,7 @@ print(f"Data exported to: {export_result}")
 ## 🎛️ Dashboard Guide
 
 ### Research Dashboard (`working_dashboard.py`)
-**Primary Interface**: Comprehensive Chapter 4 analysis platform
+**Primary Interface**: Comprehensive analysis platform
 
 #### **Executive Summary Tab**
 - System performance metrics and achievements
