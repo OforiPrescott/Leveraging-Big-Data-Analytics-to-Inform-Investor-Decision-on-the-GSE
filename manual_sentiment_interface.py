@@ -37,21 +37,24 @@ class ManualSentimentInterface:
     def _load_gse_companies(self) -> List[Dict]:
         """Load GSE company information"""
         return [
-            {'symbol': 'MTN', 'name': 'MTN Ghana Limited', 'sector': 'Telecommunications'},
-            {'symbol': 'GCB', 'name': 'GCB Bank Limited', 'sector': 'Banking'},
-            {'symbol': 'EGH', 'name': 'Ecobank Ghana Limited', 'sector': 'Banking'},
-            {'symbol': 'TOTAL', 'name': 'TotalEnergies Marketing Ghana Limited', 'sector': 'Oil & Gas'},
+            {'symbol': 'ACCESS', 'name': 'Access Bank Ghana Plc', 'sector': 'Banking'},
+            {'symbol': 'CAL', 'name': 'CalBank PLC', 'sector': 'Banking'},
+            {'symbol': 'CPC', 'name': 'Cocoa Processing Company', 'sector': 'Agriculture'},
+            {'symbol': 'EGH', 'name': 'Ecobank Ghana PLC', 'sector': 'Banking'},
+            {'symbol': 'EGL', 'name': 'Enterprise Group PLC', 'sector': 'Financial Services'},
+            {'symbol': 'ETI', 'name': 'Ecobank Transnational Incorporation', 'sector': 'Banking'},
             {'symbol': 'FML', 'name': 'Fan Milk Limited', 'sector': 'Food & Beverages'},
-            {'symbol': 'SCB', 'name': 'Standard Chartered Bank Ghana Limited', 'sector': 'Banking'},
-            {'symbol': 'CAL', 'name': 'CAL Bank Limited', 'sector': 'Banking'},
-            {'symbol': 'ACCESS', 'name': 'Access Bank Ghana Limited', 'sector': 'Banking'},
-            {'symbol': 'AGA', 'name': 'AngloGold Ashanti Limited', 'sector': 'Mining'},
-            {'symbol': 'GOIL', 'name': 'Ghana Oil Company Limited', 'sector': 'Oil & Gas'},
-            {'symbol': 'UTB', 'name': 'UT Bank Limited', 'sector': 'Banking'},
-            {'symbol': 'BOPP', 'name': 'Benso Oil Palm Plantation Limited', 'sector': 'Agriculture'},
-            {'symbol': 'PBC', 'name': 'Produce Buying Company Limited', 'sector': 'Agriculture'},
-            {'symbol': 'SWL', 'name': 'Starwin Limited', 'sector': 'Manufacturing'},
-            {'symbol': 'CLYD', 'name': 'Clydestone Ghana Limited', 'sector': 'Manufacturing'}
+            {'symbol': 'GCB', 'name': 'Ghana Commercial Bank Limited', 'sector': 'Banking'},
+            {'symbol': 'GGBL', 'name': 'Guinness Ghana Breweries Plc', 'sector': 'Beverages'},
+            {'symbol': 'GOIL', 'name': 'GOIL PLC', 'sector': 'Oil & Gas'},
+            {'symbol': 'MTNGH', 'name': 'MTN Ghana', 'sector': 'Telecommunications'},
+            {'symbol': 'RBGH', 'name': 'Republic Bank (Ghana) PLC', 'sector': 'Banking'},
+            {'symbol': 'SCB', 'name': 'Standard Chartered Bank Ghana Ltd', 'sector': 'Banking'},
+            {'symbol': 'SIC', 'name': 'SIC Insurance Company Limited', 'sector': 'Insurance'},
+            {'symbol': 'SOGEGH', 'name': 'Societe Generale Ghana Limited', 'sector': 'Banking'},
+            {'symbol': 'TOTAL', 'name': 'TotalEnergies Ghana PLC', 'sector': 'Oil & Gas'},
+            {'symbol': 'UNIL', 'name': 'Unilever Ghana PLC', 'sector': 'Consumer Goods'},
+            {'symbol': 'GLD', 'name': 'NewGold ETF', 'sector': 'Exchange Traded Fund'}
         ]
     
     def save_manual_sentiment(self, company: str, news_type: str, content: str, 

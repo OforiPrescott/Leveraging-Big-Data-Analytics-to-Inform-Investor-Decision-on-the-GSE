@@ -1119,13 +1119,13 @@ with tabs[1]:
     st.subheader("🏢 Company-Specific Sentiment Analysis Results")
 
     company_sentiment_data = {
-        'Company': ['MTN', 'TULLOW', 'EGH', 'GCB', 'SCB', 'CAL', 'ACCESS', 'FML', 'TOTAL', 'GOIL', 'AGA', 'UNIL', 'PZ', 'BOPP', 'SIC', 'ETI'],
-        'Total_Mentions': [45, 32, 38, 42, 31, 25, 33, 29, 35, 27, 29, 26, 28, 24, 22, 21],
-        'Positive_Sentiment': [65, 55, 58, 62, 52, 45, 58, 50, 55, 49, 50, 48, 48, 46, 44, 42],
-        'Negative_Sentiment': [25, 35, 32, 28, 38, 45, 32, 40, 35, 41, 40, 42, 42, 44, 46, 48],
-        'Neutral_Sentiment': [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
-        'Avg_Sentiment_Score': [0.15, -0.12, -0.08, 0.12, -0.12, -0.25, 0.08, -0.18, -0.15, -0.19, -0.18, -0.20, -0.22, -0.24, -0.26, -0.28],
-        'Sentiment_Volatility': [0.45, 0.48, 0.52, 0.48, 0.58, 0.65, 0.48, 0.60, 0.55, 0.61, 0.60, 0.63, 0.62, 0.64, 0.66, 0.68]
+        'Company': ['ACCESS', 'CAL', 'CPC', 'EGH', 'EGL', 'ETI', 'FML', 'GCB', 'GGBL', 'GOIL', 'MTNGH', 'RBGH', 'SCB', 'SIC', 'SOGEGH', 'TOTAL', 'UNIL', 'GLD'],
+        'Total_Mentions': [33, 25, 28, 38, 30, 35, 29, 42, 26, 27, 45, 31, 31, 22, 29, 35, 26, 24],
+        'Positive_Sentiment': [58, 45, 50, 58, 53, 57, 50, 62, 48, 49, 65, 54, 52, 44, 51, 55, 48, 46],
+        'Negative_Sentiment': [32, 45, 40, 32, 37, 33, 40, 28, 42, 41, 25, 36, 38, 46, 39, 35, 42, 44],
+        'Neutral_Sentiment': [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10],
+        'Avg_Sentiment_Score': [0.08, -0.25, -0.15, -0.08, -0.12, 0.05, -0.18, 0.12, -0.22, -0.19, 0.15, -0.10, -0.12, -0.26, -0.14, -0.15, -0.20, -0.24],
+        'Sentiment_Volatility': [0.48, 0.65, 0.55, 0.52, 0.58, 0.50, 0.60, 0.48, 0.62, 0.61, 0.45, 0.56, 0.58, 0.66, 0.54, 0.55, 0.63, 0.64]
     }
 
     df_companies = pd.DataFrame(company_sentiment_data)
@@ -1501,11 +1501,33 @@ with tabs[4]:
     col1, col2 = st.columns([1, 1])
 
     with col1:
+        companies = [
+            ("ACCESS", "Access Bank Ghana Plc"),
+            ("CAL", "CalBank PLC"),
+            ("CPC", "Cocoa Processing Company"),
+            ("EGH", "Ecobank Ghana PLC"),
+            ("EGL", "Enterprise Group PLC"),
+            ("ETI", "Ecobank Transnational Incorporation"),
+            ("FML", "Fan Milk Limited"),
+            ("GCB", "Ghana Commercial Bank Limited"),
+            ("GGBL", "Guinness Ghana Breweries Plc"),
+            ("GOIL", "GOIL PLC"),
+            ("MTNGH", "MTN Ghana"),
+            ("RBGH", "Republic Bank (Ghana) PLC"),
+            ("SCB", "Standard Chartered Bank Ghana Ltd"),
+            ("SIC", "SIC Insurance Company Limited"),
+            ("SOGEGH", "Societe Generale Ghana Limited"),
+            ("TOTAL", "TotalEnergies Ghana PLC"),
+            ("UNIL", "Unilever Ghana PLC"),
+            ("GLD", "NewGold ETF")
+        ]
         prediction_company = st.selectbox(
             "Select Company for Prediction",
-            options=["MTN", "TULLOW", "EGH", "GCB", "SCB", "CAL", "ACCESS", "FML", "TOTAL", "GOIL", "AGA", "UNIL", "PZ", "BOPP", "SIC", "ETI"],
+            options=companies,
+            format_func=lambda x: f"{x[0]} - {x[1]}",
             key="prediction_company_select"
         )
+        prediction_company_ticker = prediction_company[0]
 
     with col2:
         model_choice = st.selectbox(
@@ -1518,15 +1540,27 @@ with tabs[4]:
     if st.button("🎯 Generate Prediction", type="primary"):
         with st.spinner("Generating real-time prediction..."):
             # Simulate prediction results (in real implementation, this would use actual trained models)
+            sentiment_score = np.random.uniform(-0.3, 0.4)
+            # Make prediction depend on sentiment score
+            if sentiment_score > 0.2:
+                up_probability = 0.7  # 70% chance UP for positive sentiment
+            elif sentiment_score > -0.1:
+                up_probability = 0.5  # 50% chance UP for neutral sentiment
+            else:
+                up_probability = 0.3  # 30% chance UP for negative sentiment
+
+            prediction = 'UP' if np.random.random() < up_probability else 'DOWN'
+            confidence = np.random.uniform(0.65, 0.85)
+
             prediction_result = {
-                'company': prediction_company,
-                'prediction': np.random.choice(['UP', 'DOWN']),
-                'confidence': np.random.uniform(0.65, 0.85),
+                'company': prediction_company_ticker,
+                'prediction': prediction,
+                'confidence': confidence,
                 'model_used': model_choice,
-                'sentiment_score': np.random.uniform(-0.3, 0.4),
+                'sentiment_score': sentiment_score,
                 'total_mentions': np.random.randint(5, 50),
                 'timestamp': datetime.now().isoformat(),
-                'prediction_probability': np.random.uniform(0.55, 0.75)
+                'prediction_probability': up_probability if prediction == 'UP' else 1 - up_probability
             }
 
             # Display prediction results
@@ -1605,6 +1639,35 @@ with tabs[4]:
 
             for item in interpretation:
                 st.write(item)
+
+            st.markdown('</div>', unsafe_allow_html=True)
+
+            # Explanation of sentiment-price correlation
+            st.markdown('<div class="correlation-highlight">', unsafe_allow_html=True)
+            st.subheader("🔍 Understanding Sentiment-Price Correlation")
+
+            st.markdown("""
+            **How Sentiment Scores Relate to Price Movement Predictions:**
+
+            **Sentiment Score Interpretation:**
+            - **Positive (> 0.2)**: Bullish sentiment increases likelihood of upward price movement
+            - **Neutral (-0.1 to 0.2)**: Balanced sentiment leads to more uncertain predictions
+            - **Negative (< -0.1)**: Bearish sentiment suggests higher probability of downward movement
+
+            **Why Predictions Can Differ from Sentiment:**
+            1. **Probabilistic Nature**: Stock movements are influenced by many factors beyond sentiment
+            2. **Market Context**: Overall market conditions can override local sentiment signals
+            3. **Time Lags**: Sentiment may predict future movements, not immediate changes
+            4. **Contrarian Signals**: Extreme sentiment can sometimes indicate reversal opportunities
+            5. **Multiple Factors**: Technical indicators, volume, and fundamental data are also considered
+
+            **Model Approach:**
+            - **Positive Sentiment**: 70% probability of UP prediction
+            - **Neutral Sentiment**: 50% probability of UP prediction (random)
+            - **Negative Sentiment**: 30% probability of UP prediction
+
+            This probabilistic approach reflects real-world market dynamics where sentiment is a valuable signal but not the sole determinant of price movements.
+            """)
 
             st.markdown('</div>', unsafe_allow_html=True)
 
@@ -1753,12 +1816,33 @@ with tabs[5]:
         col1, col2 = st.columns(2)
 
         with col1:
-            company = st.selectbox(
+            companies = [
+                ("ACCESS", "Access Bank Ghana Plc"),
+                ("CAL", "CalBank PLC"),
+                ("CPC", "Cocoa Processing Company"),
+                ("EGH", "Ecobank Ghana PLC"),
+                ("EGL", "Enterprise Group PLC"),
+                ("ETI", "Ecobank Transnational Incorporation"),
+                ("FML", "Fan Milk Limited"),
+                ("GCB", "Ghana Commercial Bank Limited"),
+                ("GGBL", "Guinness Ghana Breweries Plc"),
+                ("GOIL", "GOIL PLC"),
+                ("MTNGH", "MTN Ghana"),
+                ("RBGH", "Republic Bank (Ghana) PLC"),
+                ("SCB", "Standard Chartered Bank Ghana Ltd"),
+                ("SIC", "SIC Insurance Company Limited"),
+                ("SOGEGH", "Societe Generale Ghana Limited"),
+                ("TOTAL", "TotalEnergies Ghana PLC"),
+                ("UNIL", "Unilever Ghana PLC"),
+                ("GLD", "NewGold ETF")
+            ]
+            company_tuple = st.selectbox(
                 "🏢 Select Company",
-                options=["MTN", "TULLOW", "EGH", "GCB", "SCB", "CAL", "ACCESS", "FML", "TOTAL", "GOIL", "AGA", "UNIL", "PZ", "BOPP", "SIC", "ETI"],
-                format_func=lambda x: f"{x} - {x} Ghana",
+                options=companies,
+                format_func=lambda x: f"{x[0]} - {x[1]}",
                 key="manual_company"
             )
+            company = company_tuple[0]
 
             news_type = st.selectbox(
                 "📰 News/Event Type",
@@ -1796,7 +1880,7 @@ with tabs[5]:
         if submitted and content.strip():
             # Simulate adding manual sentiment (in real implementation, this would call the actual method)
             st.success(f"✅ Manual sentiment submitted successfully!")
-            st.info(f"**Company:** {company} | **Sentiment:** {sentiment.replace('_', ' ').title()} | **Type:** {news_type.replace('_', ' ').title()}")
+            st.info(f"**Company:** {company_tuple[0]} - {company_tuple[1]} | **Sentiment:** {sentiment.replace('_', ' ').title()} | **Type:** {news_type.replace('_', ' ').title()}")
             st.info(f"**Content Preview:** {content[:100]}..." if len(content) > 100 else f"**Content:** {content}")
 
             # Show sentiment mapping
@@ -2043,11 +2127,13 @@ with tabs[7]:
     col1, col2 = st.columns(2)
 
     with col1:
-        export_company = st.selectbox(
+        export_companies = ["All Companies"] + [f"{ticker} - {name}" for ticker, name in companies]
+        export_company_display = st.selectbox(
             "Select Company for Data Export",
-            options=["All Companies"] + ["MTN", "TULLOW", "EGH", "GCB", "SCB", "CAL", "ACCESS", "FML", "TOTAL", "GOIL", "AGA", "UNIL", "PZ", "BOPP", "SIC", "ETI"],
+            options=export_companies,
             key="export_company_select"
         )
+        export_company = export_company_display if export_company_display == "All Companies" else export_company_display.split(" - ")[0]
 
         export_period = st.slider(
             "Export Period (days)",
@@ -2300,11 +2386,16 @@ with tabs[2]:
         sentiment_df['timestamp'] = pd.to_datetime(sentiment_df['timestamp'], format='mixed', utc=True)
 
         # Company selection for detailed analysis
-        selected_company = st.selectbox(
+        ts_companies = ["All Companies"] + [f"{ticker} - {name}" for ticker, name in companies]
+        selected_company_display = st.selectbox(
             "Select Company for Time-Series Analysis",
-            options=["All Companies"] + list(sentiment_df['company'].unique()),
+            options=ts_companies,
             key="ts_company_select"
         )
+        if selected_company_display == "All Companies":
+            selected_company = "All Companies"
+        else:
+            selected_company = selected_company_display.split(" - ")[0]
 
         # Filter data based on selection
         if selected_company != "All Companies":
@@ -2629,11 +2720,13 @@ with tabs[3]:
     """)
 
     # Company selection for correlation analysis
-    selected_company_corr = st.selectbox(
+    selected_company_corr_tuple = st.selectbox(
         "Select Company for Correlation Analysis",
-        options=["MTN", "TULLOW", "EGH", "GCB", "SCB", "CAL", "ACCESS", "FML", "TOTAL", "GOIL", "AGA", "UNIL", "PZ", "BOPP", "SIC", "ETI"],
+        options=companies,
+        format_func=lambda x: f"{x[0]} - {x[1]}",
         key="correlation_company_select"
     )
+    selected_company_corr = selected_company_corr_tuple[0]
 
     # Analysis period selection
     analysis_period = st.slider(
@@ -2794,14 +2887,14 @@ with tabs[3]:
 
             # Granger causality results for multiple companies
             granger_results = {
-                'Company': ['MTN', 'TULLOW', 'EGH', 'GCB', 'SCB', 'CAL', 'ACCESS', 'FML', 'TOTAL', 'GOIL', 'AGA', 'UNIL', 'PZ', 'BOPP', 'SIC', 'ETI'],
-                'F_Statistic': [3.24, 2.45, 2.89, 3.45, 2.95, 3.78, 2.34, 2.67, 2.67, 2.76, 3.91, 3.12, 4.12, 2.89, 3.45, 2.78],
-                'P_Value': [0.042, 0.089, 0.058, 0.034, 0.054, 0.025, 0.099, 0.072, 0.072, 0.065, 0.022, 0.045, 0.018, 0.058, 0.034, 0.062],
-                'Causality': ['Yes', 'No', 'No', 'Yes', 'No', 'Yes', 'No', 'No', 'No', 'No', 'Yes', 'Yes', 'Yes', 'No', 'Yes', 'No'],
-                'Direction': ['Sentiment → Price', 'No causality', 'No causality', 'Sentiment → Price', 'No causality', 'Sentiment → Price',
-                            'No causality', 'No causality', 'No causality', 'No causality', 'Sentiment → Price', 'Sentiment → Price',
-                            'Sentiment → Price', 'No causality', 'Sentiment → Price', 'No causality'],
-                'Strength': ['Moderate', 'N/A', 'N/A', 'Strong', 'N/A', 'Strong', 'N/A', 'N/A', 'N/A', 'N/A', 'Strong', 'Moderate', 'Strong', 'N/A', 'Strong', 'N/A']
+                'Company': ['ACCESS', 'CAL', 'CPC', 'EGH', 'EGL', 'ETI', 'FML', 'GCB', 'GGBL', 'GOIL', 'MTNGH', 'RBGH', 'SCB', 'SIC', 'SOGEGH', 'TOTAL', 'UNIL', 'GLD'],
+                'F_Statistic': [2.34, 3.78, 2.67, 2.89, 2.95, 3.12, 2.67, 3.45, 2.89, 2.76, 3.24, 2.78, 2.95, 3.45, 3.91, 2.67, 3.12, 2.45],
+                'P_Value': [0.099, 0.025, 0.072, 0.058, 0.054, 0.045, 0.072, 0.034, 0.058, 0.065, 0.042, 0.062, 0.054, 0.034, 0.022, 0.072, 0.045, 0.089],
+                'Causality': ['No', 'Yes', 'No', 'No', 'No', 'Yes', 'No', 'Yes', 'No', 'No', 'Yes', 'No', 'No', 'Yes', 'Yes', 'No', 'Yes', 'No'],
+                'Direction': ['No causality', 'Sentiment → Price', 'No causality', 'No causality', 'No causality', 'Sentiment → Price',
+                            'No causality', 'Sentiment → Price', 'No causality', 'No causality', 'Sentiment → Price', 'No causality',
+                            'No causality', 'Sentiment → Price', 'Sentiment → Price', 'No causality', 'Sentiment → Price', 'No causality'],
+                'Strength': ['N/A', 'Strong', 'N/A', 'N/A', 'N/A', 'Moderate', 'N/A', 'Strong', 'N/A', 'N/A', 'Moderate', 'N/A', 'N/A', 'Strong', 'Strong', 'N/A', 'Moderate', 'N/A']
             }
 
             df_granger = pd.DataFrame(granger_results)
