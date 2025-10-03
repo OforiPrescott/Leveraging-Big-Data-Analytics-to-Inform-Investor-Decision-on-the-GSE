@@ -1,6 +1,6 @@
 # GSE Sentiment Analysis & Stock Prediction System
 
-A comprehensive research platform for analyzing investor sentiment and predicting stock movements on the Ghana Stock Exchange (GSE) using advanced big data analytics, natural language processing, and machine learning techniques.
+A comprehensive research platform for analyzing investor sentiment and predicting stock movements on the Ghana Stock Exchange (GSE) using advanced machine learning, natural language processing, and predictive analytics techniques.
 
 ## 🌐 Live Deployment
 
@@ -25,7 +25,7 @@ A comprehensive research platform for analyzing investor sentiment and predictin
 
 ## 🎯 Overview
 
-This system implements a **hybrid automated-manual sentiment analysis framework** for the Ghana Stock Exchange, addressing the research gap in applying big data analytics to emerging market investment decisions. The platform combines:
+This system implements a **hybrid automated-manual sentiment analysis framework** for the Ghana Stock Exchange, addressing the research gap in applying machine learning to emerging market investment decisions. The platform combines:
 
 - **13 data sources** including news websites, social media, and manual expert input
 - **5 sentiment analysis methods** (VADER, TextBlob, Lexicon, Hybrid, Advanced BERT)
@@ -77,7 +77,7 @@ This system implements a **hybrid automated-manual sentiment analysis framework*
 ### 1. Initial Setup
 ```bash
 # Clone or navigate to project directory
-cd "Leveraging Big Data Analytics to Inform Investor Decision on the GSE"
+cd "Leveraging Machine Learning for Investor Decision-Making on the Ghana Stock Exchange"
 
 # Install dependencies
 pip install -r requirements.txt
@@ -1048,7 +1048,7 @@ This research platform welcomes academic and technical contributions:
 ## 📄 License & Academic Use
 
 ### Academic License
-This project is developed for academic research purposes as part of a dissertation on leveraging big data analytics for Ghana Stock Exchange investment decisions.
+This project is developed for academic research purposes as part of a dissertation on leveraging machine learning for Ghana Stock Exchange investment decisions.
 
 **Permitted Use:**
 - Academic research and publications
@@ -1059,7 +1059,7 @@ This project is developed for academic research purposes as part of a dissertati
 **Required Attribution:**
 ```
 GSE Sentiment Analysis System (2025).
-"Leveraging Big Data Analytics for Investor Decision-Making on the Ghana Stock Exchange."
+"Leveraging Machine Learning for Investor Decision-Making on the Ghana Stock Exchange."
 Developed by Amanda for academic research purposes.
 ```
 

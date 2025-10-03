@@ -20,7 +20,7 @@ COLOR_PALETTE = {
     'bearish': '#ef4444',       # Red
     'primary': '#3b82f6',       # Blue
     'secondary': '#6b7280',     # Gray
-    'accent': '#8b5cf6',        # Purple
+    'accent': '#06b6d4',        # Cyan
     'success': '#059669',       # Dark green
     'warning': '#d97706',       # Orange
     'error': '#dc2626'          # Dark red
@@ -118,11 +118,11 @@ st.markdown("""
             color: #ffffff !important;
         }
 
-        /* Main header - vibrant gradient for better visibility */
+        /* Main header - clean white background */
         .main-header {
-            background: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%) !important;
-            color: #ffffff !important;
-            box-shadow: 0 8px 32px rgba(139, 92, 246, 0.3) !important;
+            background: #ffffff !important;
+            color: #1f2937 !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
         }
 
         /* Cards and sections */
@@ -765,7 +765,7 @@ st.markdown("""
         GSE Sentiment Analysis & Prediction System
     </h1>
     <p style='font-size: 1.3em; margin: 15px 0 0 0; text-align: center; opacity: 0.95; font-weight: 500;'>
-         Leveraging Big Data Analytics for Investor Decision-Making on the Ghana Stock Exchange
+         Leveraging Machine Learning for Investor Decision-Making on the Ghana Stock Exchange
     </p>
     <p style='text-align: center; margin: 20px 0 0 0; font-style: italic; opacity: 0.85; font-size: 1.1em;'>
         "Empirical Investigation of Sentiment-Driven Market Prediction in Emerging Markets"
@@ -2992,6 +2992,6 @@ st.markdown("""
 <div style='text-align: center; color: #666; padding: 20px;'>
     <p><strong>GSE AI Analytics Platform</strong></p>
     <p>Advanced Financial Analytics & Academic Research Platform</p>
-    <p><small>© 2025 Amanda | Leveraging Big Data Analytics for Investor Decision-Making</small></p>
+    <p><small>© 2025 Amanda | Leveraging Machine Learning for Investor Decision-Making</small></p>
 </div>
 """, unsafe_allow_html=True)

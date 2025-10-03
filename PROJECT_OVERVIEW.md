@@ -157,7 +157,7 @@ This project combines:
 ## 🎓 Academic Achievement
 
 This project successfully answers the research question:
-*"How can big data analytics and user sentiment analysis be leveraged to predict stock market movements on the Ghana Stock Exchange?"*
+*"How can machine learning and user sentiment analysis be leveraged to predict stock market movements on the Ghana Stock Exchange?"*
 
 ### Key Findings
 - ✅ **Sentiment analysis works**: 70-75% prediction accuracy achieved
