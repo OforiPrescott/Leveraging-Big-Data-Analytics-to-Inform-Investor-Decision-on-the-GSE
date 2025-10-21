@@ -1,0 +1,17 @@
+STATISTICAL ANALYSIS RESULTS
+==================================================
+
+NORMALITY:
+  statistic: 27.49513487130358
+  p_value: 1.0703044303065515e-06
+  is_normal: False
+
+CORRELATIONS:
+  sentiment_score_vs_confidence: {'pearson': np.float64(-0.007632022183261689), 'pearson_p': np.float64(0.5895154155954102)}
+  sentiment_score_vs_mentions_count: {'pearson': np.float64(0.009012996794361091), 'pearson_p': np.float64(0.5240149576169124)}
+  confidence_vs_mentions_count: {'pearson': np.float64(0.00927959390000824), 'pearson_p': np.float64(0.5118135464719596)}
+
+ANOVA_SECTORS:
+  f_statistic: 67.31883294097611
+  p_value: 4.963039823610876e-55
+  significant: True
