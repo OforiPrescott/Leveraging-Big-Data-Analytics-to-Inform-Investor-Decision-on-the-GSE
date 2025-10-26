@@ -1,0 +1,47 @@
+{
+  "data_overview": {
+    "sentiment_stats": {
+      "total_automated": 69,
+      "total_manual": 0,
+      "companies": 10,
+      "sources": 6
+    },
+    "stock_stats": {
+      "total_records": 1360,
+      "price_range": [
+        1806.94,
+        6703.62
+      ]
+    }
+  },
+  "key_findings": {
+    "top_correlated_features": [
+      "sentiment_mean",
+      "sentiment_std",
+      "sentiment_count",
+      "confidence_mean",
+      "price_ma_5"
+    ],
+    "most_important_features": [
+      "price_change_5d",
+      "price_change_1d",
+      "volume_ratio",
+      "price_ma_10",
+      "price_ma_5"
+    ],
+    "rfe_selected_features": [
+      "price_ma_5",
+      "price_ma_10",
+      "volume_ratio",
+      "price_change_1d",
+      "price_change_5d"
+    ]
+  },
+  "recommendations": [
+    "Focus on sentiment_mean and sentiment_count as primary predictors",
+    "Include technical indicators (price_ma_5, volume_ratio) in models",
+    "Consider ensemble methods combining correlation and importance-based features",
+    "Monitor sentiment volatility as a risk indicator",
+    "Expand data collection to increase sample size for better statistical power"
+  ]
+}

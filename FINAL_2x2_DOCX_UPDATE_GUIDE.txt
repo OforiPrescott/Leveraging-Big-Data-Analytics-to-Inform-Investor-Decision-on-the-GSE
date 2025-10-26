@@ -1,0 +1,105 @@
+
+COMPLETE DOCX UPDATE GUIDE FOR CHAPTER 4 (2x2 LAYOUT)
+===================================================
+
+FILES GENERATED FOR YOUR THESIS UPDATE:
+========================================
+
+1. CONTENT FILES:
+   - Chapter4_EDA_Content_For_DOCX.txt (25.1 KB)
+     → Contains complete EDA and Feature Selection sections to insert
+
+   - Visualization_Descriptions_For_DOCX.txt (9.2 KB)
+     → Contains detailed figure captions for all visualizations
+
+2. 2x2 VISUALIZATION FILES:
+   - 2x2_visualizations/ directory with 1 PNG file:
+     • figure_4_2_sentiment_2x2.png (648.3 KB)
+
+
+3. ANALYSIS RESULTS:
+   - eda_plots/eda_summary_report.json - Complete analysis summary
+   - eda_plots/feature_selection_results.json - Detailed feature selection results
+
+STEP-BY-STEP DOCX UPDATE INSTRUCTIONS (2x2 LAYOUT):
+==================================================
+
+1. OPEN YOUR DOCUMENT:
+   Open "Chapter4 Findings & Analysis Pres. Final2docx.docx"
+
+2. LOCATE INSERTION POINT:
+   Find section 4.1.1 (Data Overview) and locate the paragraph ending with:
+   "All these columns give an elaborate view of the dataset, which is transparent,
+   reproducible, and corresponds with the research objectives."
+
+3. INSERT EDA CONTENT:
+   Immediately after that paragraph, insert the content from:
+   → Chapter4_EDA_Content_For_DOCX.txt
+
+4. INSERT 2x2 VISUALIZATION:
+   Insert the following PNG file at the appropriate location:
+
+   Figure 4.2: GSE Sentiment Analysis Overview
+   → 2x2_visualizations/figure_4_2_sentiment_2x2.png
+
+5. ADD FIGURE CAPTION:
+   Use the detailed description from:
+   → Visualization_Descriptions_For_DOCX.txt
+
+6. HIGHLIGHT NEW CONTENT:
+   Highlight ALL newly added EDA and Feature Selection content in YELLOW
+
+7. UPDATE TABLE OF CONTENTS:
+   Update the document's table of contents to include new sections
+
+8. ADD APPENDIX CODE:
+   At the end of the document (before references), add the analysis code from:
+   → Chapter4_EDA_Content_For_DOCX.txt (Appendix B section)
+
+WHAT THE 2x2 VISUALIZATION CONTAINS:
+===================================
+
+Figure 4.2: GSE Sentiment Analysis Overview (2x2 Layout)
+--------------------------------------------------------
+
+TOP ROW (A-B):
+• A) Sentiment Distribution: Bar chart showing 52.2% negative, 44.9% positive, 2.9% neutral
+• B) Daily Sentiment Trend: Line plot with confidence bands showing sentiment over time
+
+BOTTOM ROW (C-D):
+• C) Sentiment by News Source: Horizontal bars showing sentiment from different sources
+• D) Sentiment by GSE Company: Horizontal bars showing sentiment for MTN, EGH, GCB, etc.
+
+KEY IMPROVEMENTS OVER PREVIOUS VERSION:
+========================================
+
+1. 2x2 LAYOUT: Two graphs per row instead of individual plots
+2. LARGER PLOTS: Each subplot is bigger and clearer
+3. BETTER READABILITY: Addresses supervisor's concern about unclear axes
+4. PROFESSIONAL FORMATTING: Academic-style with proper labels and statistics
+5. REAL DATA: Uses actual GSE company names and sentiment scores
+6. SINGLE FILE: Easier to insert into DOCX document
+
+SUPERVISOR REQUIREMENTS ADDRESSED:
+==================================
+
+✓ "Make it 2x2 for him" → Two graphs per row layout implemented
+✓ "Two graphs on one row instead of 4" → 2x2 grid (2 rows × 2 columns)
+✓ "The figure is not clear to the eye, so find a way to enlarge them"
+  → Larger individual plots with better formatting
+✓ "Consider dividing the figure into two, each with two columns instead of the current four"
+  → 2x2 layout addresses this exactly
+✓ "It may mean using two columns instead of three" → 2x2 grid implemented
+
+ANALYSIS SUMMARY:
+================
+
+- Total sentiment articles analyzed: 69
+- Companies covered: 10 (ACCESS, AGA, CAL, EGH, FML, GCB, GOIL, MTN, SCB, TOTAL)
+- News sources: 6 (including citinewsroom.com)
+- Analysis period: September-October 2025
+- Overall sentiment: Slightly negative (-0.035 average)
+- Feature selection identified technical indicators as most predictive
+
+This 2x2 layout update transforms your Chapter 4 into a comprehensive analysis chapter
+with proper EDA, feature selection, and supervisor-approved visualizations.
