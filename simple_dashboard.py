@@ -17,7 +17,8 @@ import sqlite3
 st.set_page_config(
     page_title="GSE Sentiment Analysis Dashboard",
     layout="wide",
-    initial_sidebar_state="expanded"
+    initial_sidebar_state="expanded",
+    menu_items=None
 )
 
 # Load data and models
@@ -39,7 +40,11 @@ def load_model_results():
     try:
         with open('model_results.pkl', 'rb') as f:
             return pickle.load(f)
-    except:
+    except FileNotFoundError:
+        st.warning("Model results file not found. Some features may be limited.")
+        return None
+    except Exception as e:
+        st.warning(f"Error loading model results: {e}")
         return None
 
 # Load data
@@ -102,6 +107,10 @@ if page == "📊 Overview":
             title="Overall Sentiment Distribution",
             color_discrete_sequence=['#ff6b6b', '#4ecdc4', '#45b7d1']
         )
+        fig.update_layout(
+            height=400,
+            margin=dict(l=20, r=20, t=40, b=20)
+        )
         st.plotly_chart(fig, use_container_width=True)
 
     # Recent activity
@@ -119,6 +128,10 @@ if page == "📊 Overview":
                 'NEGATIVE': '#ff6b6b',
                 'NEUTRAL': '#45b7d1'
             }
+        )
+        fig.update_layout(
+            height=400,
+            margin=dict(l=20, r=20, t=40, b=20)
         )
         st.plotly_chart(fig, use_container_width=True)
 
@@ -158,6 +171,10 @@ elif page == "📈 Sentiment Analysis":
             markers=True
         )
         fig.add_hline(y=0, line_dash="dash", line_color="red", annotation_text="Neutral")
+        fig.update_layout(
+            height=400,
+            margin=dict(l=20, r=20, t=40, b=20)
+        )
         st.plotly_chart(fig, use_container_width=True)
 
         # Sentiment distribution for company
@@ -174,6 +191,10 @@ elif page == "📈 Sentiment Analysis":
                 'NEGATIVE': '#ff6b6b',
                 'NEUTRAL': '#45b7d1'
             }
+        )
+        fig.update_layout(
+            height=400,
+            margin=dict(l=20, r=20, t=40, b=20)
         )
         st.plotly_chart(fig, use_container_width=True)
 
@@ -208,6 +229,10 @@ elif page == "🤖 Model Performance":
                 title="Prediction Accuracy by Confidence Level",
                 color='Accuracy',
                 color_continuous_scale='RdYlGn'
+            )
+            fig.update_layout(
+                height=400,
+                margin=dict(l=20, r=20, t=40, b=20)
             )
             st.plotly_chart(fig, use_container_width=True)
 
@@ -246,7 +271,12 @@ elif page == "🏢 Sector Analysis":
                 color='target_mean',
                 color_continuous_scale='Blues'
             )
-            fig.update_layout(xaxis_title="Sector", yaxis_title="Accuracy")
+            fig.update_layout(
+                xaxis_title="Sector",
+                yaxis_title="Accuracy",
+                height=400,
+                margin=dict(l=20, r=20, t=40, b=20)
+            )
             st.plotly_chart(fig, use_container_width=True)
 
             # Sector sentiment
@@ -258,7 +288,12 @@ elif page == "🏢 Sector Analysis":
                 color='sentiment_score_mean',
                 color_continuous_scale='RdYlGn'
             )
-            fig2.update_layout(xaxis_title="Sector", yaxis_title="Sentiment Score")
+            fig2.update_layout(
+                xaxis_title="Sector",
+                yaxis_title="Sentiment Score",
+                height=400,
+                margin=dict(l=20, r=20, t=40, b=20)
+            )
             st.plotly_chart(fig2, use_container_width=True)
 
             st.dataframe(sector_df.style.highlight_max(axis=0))
